@@ -20,7 +20,6 @@
     overflow-x: hidden;
   }
 
-  /* ===== STARFIELD BG ===== */
   #starfield {
     position: fixed; inset: 0; z-index: 0; pointer-events: none;
     background: radial-gradient(ellipse at 20% 50%, #1a0533 0%, #0F0A1E 60%),
@@ -35,7 +34,6 @@
     50% { opacity: 1; transform: scale(1.4); }
   }
 
-  /* ===== FLOATING EMOJIS BG ===== */
   .float-emoji {
     position: fixed; font-size: 2rem; opacity: 0.07;
     animation: floatUp var(--fd, 15s) linear infinite;
@@ -48,12 +46,10 @@
     to { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
   }
 
-  /* ===== PAGES ===== */
   .page { display: none; position: relative; z-index: 1; min-height: 100vh; }
   .page.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
   .page-inner { width: 100%; max-width: 760px; padding: 2rem; }
 
-  /* ===== LANDING ===== */
   #landing { background: transparent; }
   .hero-title {
     font-family: 'Fredoka One', cursive;
@@ -95,7 +91,6 @@
     50% { transform: translateY(-12px); }
   }
 
-  /* ===== BUTTONS ===== */
   .btn {
     display: inline-flex; align-items: center; gap: 0.5rem;
     padding: 1rem 2.5rem; border-radius: 50px; font-family: 'Fredoka One', cursive;
@@ -130,7 +125,6 @@
   }
   .btn-outline:hover { border-color: #A78BFA; background: rgba(167,139,250,0.1); }
 
-  /* ===== FORM PAGE ===== */
   .form-card {
     background: rgba(255,255,255,0.04);
     backdrop-filter: blur(20px);
@@ -160,7 +154,6 @@
   }
   input[type="text"]::placeholder { color: #6B7280; }
 
-  /* CHARACTER GRID */
   .char-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 0.75rem;
@@ -177,7 +170,6 @@
   .char-option .char-emoji { font-size: 2rem; margin-bottom: 0.3rem; }
   .char-option .char-name { font-size: 0.8rem; font-weight: 700; color: #E5E7EB; }
 
-  /* ===== CHARACTER REVEAL ===== */
   #reveal-page .reveal-card {
     text-align: center;
     background: rgba(255,255,255,0.04);
@@ -227,7 +219,6 @@
   .game-card-title { font-family: 'Fredoka One', cursive; font-size: 1.3rem; margin-bottom: 0.4rem; }
   .game-card-desc { font-size: 0.85rem; color: #9CA3AF; }
 
-  /* ===== GAME SCREENS ===== */
   #game-page { min-height: 100vh; }
   .game-header {
     text-align: center; padding: 2rem 1rem 1rem;
@@ -241,7 +232,7 @@
     max-width: 800px; margin: 0 auto; padding: 1rem 1.5rem 3rem;
   }
 
-  /* --- SUDOKU GAME --- */
+  /* SUDOKU */
   .sudoku-grid {
     display: grid; grid-template-columns: repeat(9, 1fr);
     gap: 2px; max-width: 450px; margin: 1.5rem auto;
@@ -271,7 +262,7 @@
   }
   .num-btn:hover { background: rgba(167,139,250,0.4); transform: scale(1.1); }
 
-  /* --- CHESS GAME --- */
+  /* CHESS */
   .chess-board {
     display: grid; grid-template-columns: repeat(8, 1fr);
     max-width: 480px; margin: 1rem auto; border-radius: 12px; overflow: hidden;
@@ -288,7 +279,7 @@
   .chess-cell.possible { background: rgba(52,211,153,0.3) !important; }
   .chess-cell:hover { filter: brightness(1.3); }
 
-  /* --- JOKE GAME --- */
+  /* JOKES */
   .joke-card {
     background: rgba(255,107,157,0.08); border: 2px solid rgba(255,107,157,0.3);
     border-radius: 24px; padding: 2.5rem; text-align: center; max-width: 550px; margin: 0 auto 1.5rem;
@@ -301,7 +292,7 @@
   .laugh-btn { font-size: 2rem; cursor: pointer; transition: transform 0.2s; background: none; border: none; }
   .laugh-btn:hover { transform: scale(1.4) rotate(10deg); }
 
-  /* --- WORD SCRAMBLE --- */
+  /* WORD SCRAMBLE */
   .scramble-word {
     font-family: 'Fredoka One', cursive; font-size: 3rem; letter-spacing: 0.3em;
     text-align: center; color: #34D399; margin: 1rem 0;
@@ -317,7 +308,7 @@
   }
   .scramble-input:focus { outline: none; border-color: #34D399; box-shadow: 0 0 0 4px rgba(52,211,153,0.15); }
 
-  /* --- MEMORY CARD GAME --- */
+  /* MEMORY */
   .memory-grid {
     display: grid; grid-template-columns: repeat(4, 1fr);
     gap: 0.75rem; max-width: 420px; margin: 1.5rem auto;
@@ -340,7 +331,7 @@
   .memory-card-back { background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.15); transform: rotateY(180deg); }
   .memory-card.matched .memory-card-back { background: rgba(52,211,153,0.2); border-color: #34D399; }
 
-  /* --- QUIZ GAME --- */
+  /* QUIZ */
   .quiz-question {
     font-size: 1.3rem; font-weight: 700; text-align: center;
     background: rgba(255,255,255,0.05); border-radius: 20px;
@@ -356,7 +347,7 @@
   .quiz-option.correct { background: rgba(52,211,153,0.2); border-color: #34D399; color: #34D399; }
   .quiz-option.wrong { background: rgba(248,113,113,0.2); border-color: #F87171; color: #F87171; }
 
-  /* --- EMOJI PUZZLE --- */
+  /* EMOJI PUZZLE */
   .emoji-puzzle-area {
     text-align: center; max-width: 550px; margin: 0 auto;
   }
@@ -375,7 +366,7 @@
   }
   .emoji-option-btn:hover { transform: scale(1.2) rotate(10deg); background: rgba(255,255,255,0.12); border-color: #FBBF24; }
 
-  /* --- RIDDLE GAME --- */
+  /* RIDDLE */
   .riddle-card {
     background: rgba(96,165,250,0.08); border: 2px solid rgba(96,165,250,0.3);
     border-radius: 24px; padding: 2.5rem; text-align: center; max-width: 550px; margin: 0 auto 1.5rem;
@@ -389,10 +380,8 @@
   }
   .riddle-input:focus { outline: none; border-color: #60A5FA; }
 
-  /* --- TYPING SPEED GAME --- */
-  .typing-area {
-    max-width: 600px; margin: 0 auto;
-  }
+  /* TYPING */
+  .typing-area { max-width: 600px; margin: 0 auto; }
   .typing-display {
     background: rgba(255,255,255,0.05); border-radius: 16px; padding: 1.5rem;
     font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem; min-height: 80px;
@@ -415,7 +404,7 @@
   .stat-val { font-family: 'Fredoka One', cursive; font-size: 1.8rem; color: #A78BFA; }
   .stat-lbl { font-size: 0.75rem; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.05em; }
 
-  /* --- PATTERN GAME --- */
+  /* PATTERN */
   .pattern-grid {
     display: grid; grid-template-columns: repeat(4,1fr);
     gap: 0.5rem; max-width: 350px; margin: 1.5rem auto;
@@ -429,10 +418,8 @@
   .pattern-cell.lit { background: var(--gc, #A78BFA); box-shadow: 0 0 20px var(--gc, rgba(167,139,250,0.6)); border-color: transparent; }
   .pattern-cell:hover { transform: scale(1.08); }
 
-  /* --- HANGMAN --- */
-  .hangman-display {
-    text-align: center; margin: 1.5rem auto; max-width: 500px;
-  }
+  /* HANGMAN */
+  .hangman-display { text-align: center; margin: 1.5rem auto; max-width: 500px; }
   .hangman-word {
     display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin: 1.5rem 0;
   }
@@ -456,7 +443,91 @@
   .hangman-key.correct { background: rgba(52,211,153,0.2); border-color: #34D399; }
   .lives-display { font-size: 2rem; text-align: center; margin: 0.5rem 0; }
 
-  /* ===== SCORE / WIN SCREEN ===== */
+  /* ========== FRUIT CUTTING GAME ========== */
+  #fruit-canvas-wrap {
+    position: relative; max-width: 550px; margin: 0 auto;
+    border-radius: 20px; overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    cursor: crosshair;
+  }
+  #fruitCanvas { display: block; width: 100%; background: linear-gradient(180deg, #1a0a2e 0%, #0d1a1a 100%); }
+  .fruit-hud {
+    display: flex; gap: 1rem; justify-content: center; align-items: center;
+    background: rgba(255,255,255,0.05); border-radius: 14px;
+    padding: 0.75rem 1.5rem; margin-bottom: 1rem; flex-wrap: wrap;
+  }
+  .fruit-score-box { text-align: center; }
+  .fruit-score-val { font-family: 'Fredoka One', cursive; font-size: 2rem; color: #FBBF24; }
+  .fruit-score-lbl { font-size: 0.75rem; color: #9CA3AF; text-transform: uppercase; }
+
+  /* ========== FOOD QUIZ GAME ========== */
+  .food-quiz-card {
+    background: rgba(251,191,36,0.06); border: 2px solid rgba(251,191,36,0.25);
+    border-radius: 24px; padding: 2rem; max-width: 580px; margin: 0 auto;
+  }
+  .food-question { font-size: 1.4rem; font-weight: 800; text-align: center; margin-bottom: 1.5rem; line-height: 1.5; }
+  .food-options { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .food-opt-btn {
+    padding: 1rem; border-radius: 14px; cursor: pointer; border: 2px solid rgba(251,191,36,0.2);
+    background: rgba(251,191,36,0.08); font-weight: 700; font-family: 'Nunito', sans-serif;
+    font-size: 1rem; color: white; transition: all 0.2s; text-align: center;
+  }
+  .food-opt-btn:hover:not(:disabled) { background: rgba(251,191,36,0.2); border-color: #FBBF24; transform: scale(1.03); }
+  .food-opt-btn.correct { background: rgba(52,211,153,0.2); border-color: #34D399; color: #34D399; }
+  .food-opt-btn.wrong { background: rgba(248,113,113,0.2); border-color: #F87171; color: #F87171; }
+
+  /* ========== SHOPPING DASH GAME ========== */
+  .shop-area { max-width: 600px; margin: 0 auto; text-align: center; }
+  .shop-list-card {
+    background: rgba(255,107,157,0.07); border: 2px solid rgba(255,107,157,0.25);
+    border-radius: 20px; padding: 1.5rem; margin-bottom: 1rem; text-align: left;
+  }
+  .shop-list-title { font-family: 'Fredoka One', cursive; font-size: 1.2rem; color: #FF6B9D; margin-bottom: 0.75rem; }
+  .shop-item-row {
+    display: flex; align-items: center; gap: 0.6rem; padding: 0.4rem 0;
+    font-size: 1rem; font-weight: 600; color: #E5E7EB;
+  }
+  .shop-item-row.checked { text-decoration: line-through; color: #6B7280; }
+  .shop-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.75rem; margin: 1rem 0; }
+  .shop-item-btn {
+    padding: 0.9rem 0.5rem; border-radius: 14px; cursor: pointer;
+    border: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05);
+    font-size: 0.9rem; font-weight: 700; color: white; transition: all 0.2s;
+    font-family: 'Nunito', sans-serif; text-align: center;
+  }
+  .shop-item-btn:hover:not(:disabled) { background: rgba(255,107,157,0.15); border-color: #FF6B9D; transform: translateY(-3px); }
+  .shop-item-btn.correct-pick { background: rgba(52,211,153,0.2); border-color: #34D399; }
+  .shop-item-btn.wrong-pick { background: rgba(248,113,113,0.2); border-color: #F87171; animation: shake 0.3s; }
+  @keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+  .budget-bar { background: rgba(255,255,255,0.06); border-radius: 12px; padding: 0.75rem 1.25rem; margin-bottom: 1rem; }
+  .budget-display { font-family: 'Fredoka One', cursive; font-size: 1.5rem; color: #34D399; }
+
+  /* ========== FASHION MATCH GAME ========== */
+  .fashion-area { max-width: 560px; margin: 0 auto; text-align: center; }
+  .outfit-display {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0;
+  }
+  .outfit-piece {
+    background: rgba(255,255,255,0.06); border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 16px; padding: 1rem; min-width: 100px; text-align: center;
+    transition: all 0.3s;
+  }
+  .outfit-piece.matched { border-color: #34D399; background: rgba(52,211,153,0.1); }
+  .outfit-piece-emoji { font-size: 2.5rem; display: block; margin-bottom: 0.3rem; }
+  .outfit-piece-label { font-size: 0.8rem; color: #9CA3AF; font-weight: 700; text-transform: uppercase; }
+  .fashion-options { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.6rem; margin-top: 1rem; }
+  .fashion-opt {
+    padding: 0.8rem; border-radius: 14px; cursor: pointer;
+    border: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05);
+    font-size: 0.9rem; font-weight: 700; color: white; transition: all 0.2s;
+    font-family: 'Nunito', sans-serif; text-align: center;
+  }
+  .fashion-opt:hover:not(:disabled) { background: rgba(167,139,250,0.15); border-color: #A78BFA; transform: scale(1.05); }
+  .fashion-opt.correct { background: rgba(52,211,153,0.2); border-color: #34D399; color: #34D399; }
+  .fashion-opt.wrong { background: rgba(248,113,113,0.2); border-color: #F87171; color: #F87171; }
+
+  /* WIN SCREEN */
   .win-screen {
     display: none; position: fixed; inset: 0; z-index: 100;
     background: rgba(15,10,30,0.95); backdrop-filter: blur(10px);
@@ -474,7 +545,6 @@
   @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
   .win-title { font-family: 'Fredoka One', cursive; font-size: 3rem; background: linear-gradient(90deg, #FF6B9D, #FBBF24, #34D399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
-  /* ===== CONFETTI ===== */
   .confetti-piece {
     position: fixed; width: 10px; height: 10px; z-index: 200;
     animation: confettifall 2.5s ease-in forwards;
@@ -485,7 +555,6 @@
     100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
   }
 
-  /* ===== MUSIC CONTROL ===== */
   #music-toggle {
     position: fixed; top: 1rem; right: 1rem; z-index: 50;
     background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
@@ -496,7 +565,6 @@
   }
   #music-toggle:hover { transform: scale(1.1); background: rgba(255,255,255,0.15); }
 
-  /* ===== BACK BTN ===== */
   #back-btn {
     position: fixed; top: 1rem; left: 1rem; z-index: 50;
     background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
@@ -507,7 +575,6 @@
   }
   #back-btn:hover { background: rgba(255,255,255,0.2); transform: translateX(-3px); }
 
-  /* ===== PROGRESS ===== */
   .score-bar {
     display: flex; align-items: center; gap: 1rem; justify-content: center;
     background: rgba(255,255,255,0.05); border-radius: 12px; padding: 0.75rem 1.5rem;
@@ -515,7 +582,6 @@
   }
   .score-val { font-family: 'Fredoka One', cursive; font-size: 1.5rem; color: #FBBF24; }
 
-  /* Transitions */
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -525,24 +591,22 @@
   .fade-in-up:nth-child(3) { animation-delay: 0.2s; }
   .fade-in-up:nth-child(4) { animation-delay: 0.3s; }
 
-  /* Responsive */
   @media (max-width: 500px) {
     .chess-board { font-size: 1rem; }
     .quiz-options { grid-template-columns: 1fr; }
+    .food-options { grid-template-columns: 1fr; }
     .memory-grid { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+    .shop-grid { grid-template-columns: repeat(2,1fr); }
+    .fashion-options { grid-template-columns: repeat(2,1fr); }
   }
 </style>
 </head>
 <body>
 
-<!-- Starfield -->
 <div id="starfield"></div>
-
-<!-- Music Toggle -->
 <button id="music-toggle" title="Toggle music">🎵</button>
 <button id="back-btn">← Back</button>
 
-<!-- Win Screen -->
 <div class="win-screen" id="win-screen">
   <div class="win-box">
     <span class="win-emoji" id="win-emoji">🏆</span>
@@ -555,7 +619,7 @@
   </div>
 </div>
 
-<!-- ==================== LANDING PAGE ==================== -->
+<!-- LANDING -->
 <div class="page active" id="landing-page">
   <div class="page-inner" style="text-align:center">
     <h1 class="hero-title">CharacterVerse</h1>
@@ -568,23 +632,20 @@
   </div>
 </div>
 
-<!-- ==================== FORM PAGE ==================== -->
+<!-- FORM -->
 <div class="page" id="form-page">
   <div class="page-inner">
     <div class="form-card">
       <h2 class="form-title">🌟 Who Are You?</h2>
       <p class="form-subtitle">Tell us about yourself and we'll match you with the perfect character & games!</p>
-
       <div class="form-group fade-in-up">
         <label>Your Name</label>
         <input type="text" id="player-name" placeholder="e.g. Sara, Ahmed, Zara...">
       </div>
-
       <div class="form-group fade-in-up">
         <label>🎭 Pick Your Character Type</label>
         <div class="char-grid" id="char-grid"></div>
       </div>
-
       <div style="text-align:center;margin-top:2rem">
         <button class="btn btn-primary" onclick="submitForm()" style="padding:1rem 3rem">
           ✨ Reveal My Character!
@@ -594,7 +655,7 @@
   </div>
 </div>
 
-<!-- ==================== REVEAL PAGE ==================== -->
+<!-- REVEAL -->
 <div class="page" id="reveal-page">
   <div class="page-inner">
     <div class="reveal-card" id="reveal-card">
@@ -607,7 +668,7 @@
   </div>
 </div>
 
-<!-- ==================== GAME PAGE ==================== -->
+<!-- GAME -->
 <div class="page" id="game-page">
   <div class="game-header">
     <div class="game-title-bar" id="game-title-bar">Game</div>
@@ -622,148 +683,73 @@
 // ============================================================
 const CHARACTERS = [
   {
-    id: 'genius',
-    name: 'The Genius 🧠',
-    emoji: '🧠',
-    label: 'Intelligent / Logical',
+    id: 'genius', name: 'The Genius 🧠', emoji: '🧠', label: 'Intelligent / Logical',
     desc: 'You solve problems before others even understand them. Logic is your superpower!',
-    color: '#A78BFA',
-    games: ['sudoku', 'chess']
+    color: '#A78BFA', games: ['sudoku', 'chess']
   },
   {
-    id: 'funny',
-    name: 'The Comedian 😂',
-    emoji: '😂',
-    label: 'Funny / Humorous',
+    id: 'funny', name: 'The Comedian 😂', emoji: '😂', label: 'Funny / Humorous',
     desc: 'Life is a stage and you\'re always the star! Your jokes make everyone laugh.',
-    color: '#FF6B9D',
-    games: ['jokes', 'emoji_puzzle']
+    color: '#FF6B9D', games: ['jokes', 'emoji_puzzle']
   },
   {
-    id: 'shopaholic',
-    name: 'The Shopaholic 🛍️',
-    emoji: '🛍️',
-    label: 'Loves Shopping',
+    id: 'shopaholic', name: 'The Shopaholic 🛍️', emoji: '🛍️', label: 'Loves Shopping',
     desc: 'Retail therapy is real therapy! You know every sale before it starts.',
-    color: '#F87171',
-    games: ['memory', 'word_scramble']
+    color: '#F87171', games: ['shopping_dash', 'fashion_match']
   },
   {
-    id: 'adventurer',
-    name: 'The Adventurer 🗺️',
-    emoji: '🗺️',
-    label: 'Bold & Adventurous',
+    id: 'adventurer', name: 'The Adventurer 🗺️', emoji: '🗺️', label: 'Bold & Adventurous',
     desc: 'You jump first, look later. Every day is a new expedition!',
-    color: '#34D399',
-    games: ['hangman', 'pattern']
+    color: '#34D399', games: ['hangman', 'pattern']
   },
   {
-    id: 'bookworm',
-    name: 'The Bookworm 📚',
-    emoji: '📚',
-    label: 'Love Reading',
+    id: 'bookworm', name: 'The Bookworm 📚', emoji: '📚', label: 'Love Reading',
     desc: 'You\'ve read more books than most people know exist. Words are your universe.',
-    color: '#60A5FA',
-    games: ['word_scramble', 'riddle']
+    color: '#60A5FA', games: ['word_scramble', 'riddle']
   },
   {
-    id: 'artistic',
-    name: 'The Artist 🎨',
-    emoji: '🎨',
-    label: 'Creative & Artistic',
+    id: 'artistic', name: 'The Artist 🎨', emoji: '🎨', label: 'Creative & Artistic',
     desc: 'You see beauty in everything. Colors, shapes, and patterns speak to your soul.',
-    color: '#FBBF24',
-    games: ['memory', 'pattern']
+    color: '#FBBF24', games: ['memory', 'pattern']
   },
   {
-    id: 'athlete',
-    name: 'The Athlete 🏆',
-    emoji: '🏆',
-    label: 'Sporty & Competitive',
+    id: 'athlete', name: 'The Athlete 🏆', emoji: '🏆', label: 'Sporty & Competitive',
     desc: 'Second place doesn\'t exist in your dictionary. You play to WIN!',
-    color: '#F87171',
-    games: ['typing', 'pattern']
+    color: '#F87171', games: ['typing', 'pattern']
   },
   {
-    id: 'foodie',
-    name: 'The Foodie 🍕',
-    emoji: '🍕',
-    label: 'Loves Food',
+    id: 'foodie', name: 'The Foodie 🍕', emoji: '🍕', label: 'Loves Food',
     desc: 'You eat first, Instagram later. Every meal is a world tour!',
-    color: '#FBBF24',
-    games: ['emoji_puzzle', 'word_scramble']
+    color: '#FBBF24', games: ['fruit_cutting', 'food_quiz']
   },
   {
-    id: 'dreamer',
-    name: 'The Dreamer ✨',
-    emoji: '✨',
-    label: 'Imaginative / Dreamer',
+    id: 'dreamer', name: 'The Dreamer ✨', emoji: '✨', label: 'Imaginative / Dreamer',
     desc: 'Reality is overrated. Your imagination builds universes while others sleep.',
-    color: '#A78BFA',
-    games: ['riddle', 'hangman']
+    color: '#A78BFA', games: ['riddle', 'hangman']
   },
   {
-    id: 'techie',
-    name: 'The Techie 💻',
-    emoji: '💻',
-    label: 'Tech Lover / Geek',
+    id: 'techie', name: 'The Techie 💻', emoji: '💻', label: 'Tech Lover / Geek',
     desc: 'You\'ve already automated everything. Dark mode is a personality trait.',
-    color: '#60A5FA',
-    games: ['sudoku', 'typing']
+    color: '#60A5FA', games: ['sudoku', 'typing']
   }
 ];
 
 const GAMES = {
-  sudoku: {
-    title: 'Sudoku Master', emoji: '🔢', color: '#A78BFA',
-    desc: 'Fill the grid — every row, column & 3×3 box must have 1-9 with no repeats.',
-    init: initSudoku
-  },
-  chess: {
-    title: 'Mini Chess', emoji: '♟️', color: '#FBBF24',
-    desc: 'Strategic chess puzzles — find the best move!',
-    init: initChess
-  },
-  jokes: {
-    title: 'Joke Battle', emoji: '😂', color: '#FF6B9D',
-    desc: 'Guess the punchline or just laugh out loud!',
-    init: initJokes
-  },
-  emoji_puzzle: {
-    title: 'Emoji Quiz', emoji: '🤔', color: '#FBBF24',
-    desc: 'Decode the emoji sequence — what movie/phrase is it?',
-    init: initEmojiPuzzle
-  },
-  memory: {
-    title: 'Memory Match', emoji: '🧩', color: '#34D399',
-    desc: 'Flip and match all the pairs to win!',
-    init: initMemory
-  },
-  word_scramble: {
-    title: 'Word Unscramble', emoji: '🔤', color: '#60A5FA',
-    desc: 'Unscramble the letters to find the hidden word!',
-    init: initWordScramble
-  },
-  hangman: {
-    title: 'Hangman', emoji: '🕹️', color: '#A78BFA',
-    desc: 'Guess the word letter by letter before time runs out!',
-    init: initHangman
-  },
-  pattern: {
-    title: 'Pattern Simon', emoji: '🎯', color: '#FF6B9D',
-    desc: 'Watch the pattern then repeat it — how far can you go?',
-    init: initPattern
-  },
-  riddle: {
-    title: 'Riddle Master', emoji: '🔮', color: '#60A5FA',
-    desc: 'Think carefully — can you crack these tricky riddles?',
-    init: initRiddle
-  },
-  typing: {
-    title: 'Speed Typing', emoji: '⌨️', color: '#34D399',
-    desc: 'Type as fast as you can — beat your high score!',
-    init: initTyping
-  }
+  sudoku:        { title:'Sudoku Master',     emoji:'🔢', color:'#A78BFA', desc:'Fill the grid — every row, column & 3×3 box must have 1-9.', init:initSudoku },
+  chess:         { title:'Mini Chess',        emoji:'♟️', color:'#FBBF24', desc:'Strategic chess puzzles — find the best move!', init:initChess },
+  jokes:         { title:'Joke Battle',       emoji:'😂', color:'#FF6B9D', desc:'Guess the punchline or just laugh out loud!', init:initJokes },
+  emoji_puzzle:  { title:'Emoji Quiz',        emoji:'🤔', color:'#FBBF24', desc:'Decode the emoji sequence — what movie/phrase is it?', init:initEmojiPuzzle },
+  memory:        { title:'Memory Match',      emoji:'🧩', color:'#34D399', desc:'Flip and match all the pairs to win!', init:initMemory },
+  word_scramble: { title:'Word Unscramble',   emoji:'🔤', color:'#60A5FA', desc:'Unscramble the letters to find the hidden word!', init:initWordScramble },
+  hangman:       { title:'Hangman',           emoji:'🕹️', color:'#A78BFA', desc:'Guess the word letter by letter before time runs out!', init:initHangman },
+  pattern:       { title:'Pattern Simon',     emoji:'🎯', color:'#FF6B9D', desc:'Watch the pattern then repeat it — how far can you go?', init:initPattern },
+  riddle:        { title:'Riddle Master',     emoji:'🔮', color:'#60A5FA', desc:'Think carefully — can you crack these tricky riddles?', init:initRiddle },
+  typing:        { title:'Speed Typing',      emoji:'⌨️', color:'#34D399', desc:'Type as fast as you can — beat your high score!', init:initTyping },
+  // NEW GAMES
+  fruit_cutting: { title:'Fruit Slicer',      emoji:'🍉', color:'#F87171', desc:'Slice falling fruits before they drop — don\'t miss! 🍓🍊🍋', init:initFruitCutting },
+  food_quiz:     { title:'Food Guru Quiz',    emoji:'🍜', color:'#FBBF24', desc:'How well do you know world cuisines & food facts?', init:initFoodQuiz },
+  shopping_dash: { title:'Shopping Dash',     emoji:'🛒', color:'#FF6B9D', desc:'Buy all the items on your list within budget!', init:initShoppingDash },
+  fashion_match: { title:'Fashion Match',     emoji:'👗', color:'#A78BFA', desc:'Match the perfect outfit pieces together!', init:initFashionMatch }
 };
 
 // ============================================================
@@ -773,7 +759,7 @@ let currentChar = null, currentGame = null, playerName = '';
 let gameState = {};
 
 // ============================================================
-// BACKGROUND SETUP
+// BACKGROUND
 // ============================================================
 function setupStarfield() {
   const sf = document.getElementById('starfield');
@@ -825,12 +811,12 @@ function showPage(id) {
   document.getElementById(id).classList.add('active');
   const backBtn = document.getElementById('back-btn');
   if (id === 'landing-page') backBtn.style.display = 'none';
-  else { backBtn.style.display = 'flex'; backBtn.onclick = () => showPage(id === 'game-page' ? 'reveal-page' : id === 'reveal-page' ? 'form-page' : 'landing-page'); }
+  else {
+    backBtn.style.display = 'flex';
+    backBtn.onclick = () => showPage(id === 'game-page' ? 'reveal-page' : id === 'reveal-page' ? 'form-page' : 'landing-page');
+  }
 }
 
-// ============================================================
-// FORM LOGIC
-// ============================================================
 let selectedCharId = null;
 function selectChar(id, el) {
   document.querySelectorAll('.char-option').forEach(e => e.classList.remove('selected'));
@@ -848,7 +834,7 @@ function submitForm() {
 }
 
 // ============================================================
-// REVEAL LOGIC
+// REVEAL
 // ============================================================
 function showReveal() {
   document.getElementById('reveal-emoji').textContent = currentChar.emoji;
@@ -862,11 +848,7 @@ function showReveal() {
     const card = document.createElement('div');
     card.className = 'game-card';
     card.style.setProperty('--gc', g.color);
-    card.innerHTML = `
-      <div class="game-card-emoji">${g.emoji}</div>
-      <div class="game-card-title">${g.title}</div>
-      <div class="game-card-desc">${g.desc}</div>
-    `;
+    card.innerHTML = `<div class="game-card-emoji">${g.emoji}</div><div class="game-card-title">${g.title}</div><div class="game-card-desc">${g.desc}</div>`;
     card.onclick = () => launchGame(gid);
     row.appendChild(card);
   });
@@ -918,7 +900,7 @@ function spawnConfetti() {
 }
 
 // ============================================================
-// MUSIC (Web Audio API generated ambient music)
+// MUSIC
 // ============================================================
 let audioCtx = null, musicPlaying = false, musicNodes = [];
 const musicBtn = document.getElementById('music-toggle');
@@ -937,10 +919,8 @@ function playMusic() {
     let step = 0;
     const master = audioCtx.createGain();
     master.gain.value = 0.06;
-    const reverb = audioCtx.createGain();
-    reverb.gain.value = 0.5;
     master.connect(audioCtx.destination);
-    musicNodes.push(master, reverb);
+    musicNodes.push(master);
 
     const playNote = () => {
       if (!musicPlaying) return;
@@ -958,7 +938,7 @@ function playMusic() {
     };
     musicPlaying = true;
     playNote();
-  } catch(e) { console.log('Audio not supported'); }
+  } catch(e) {}
 }
 
 function stopMusic() {
@@ -969,7 +949,7 @@ function stopMusic() {
 }
 
 // ============================================================
-// ==================== GAME 1: SUDOKU ========================
+// GAME 1: SUDOKU
 // ============================================================
 function initSudoku() {
   const base = [
@@ -983,17 +963,14 @@ function initSudoku() {
     [9,6,1,5,3,7,2,8,4],[2,8,7,4,1,9,6,3,5],[3,4,5,2,8,6,1,7,9]
   ];
   const board = base.map(r => [...r]);
-  let selected = null;
-  let errors = 0;
+  let selected = null, errors = 0;
 
   const area = document.getElementById('game-area');
   area.innerHTML = `
     <p style="text-align:center;color:#9CA3AF;margin-bottom:0.5rem">Fill in the missing numbers (1-9)</p>
     <div class="sudoku-grid" id="sg"></div>
     <div class="num-pad" id="np"></div>
-    <div style="text-align:center;margin-top:1rem">
-      <span id="err-count" style="color:#F87171;font-weight:700">Errors: 0</span>
-    </div>
+    <div style="text-align:center;margin-top:1rem"><span id="err-count" style="color:#F87171;font-weight:700">Errors: 0</span></div>
   `;
 
   const grid = document.getElementById('sg');
@@ -1025,12 +1002,10 @@ function initSudoku() {
       if (base[r][c]) return;
       const cell = cells[r*9+c];
       if (n === solution[r][c]) {
-        board[r][c] = n; cell.textContent = n;
-        cell.style.color = '#34D399';
-        cell.classList.remove('error','selected');
-        selected = null;
+        board[r][c] = n; cell.textContent = n; cell.style.color = '#34D399';
+        cell.classList.remove('error','selected'); selected = null;
         if (board.every((row,ri) => row.every((v,ci) => v === solution[ri][ci])))
-          setTimeout(() => showWin('You solved the Sudoku! 🧠 Your IQ is off the charts!', '🧠', 'Sudoku Solved!'), 300);
+          setTimeout(() => showWin('You solved the Sudoku! 🧠', '🧠', 'Sudoku Solved!'), 300);
       } else {
         errors++;
         cell.textContent = n; cell.classList.add('error');
@@ -1043,50 +1018,39 @@ function initSudoku() {
 }
 
 // ============================================================
-// ==================== GAME 2: CHESS PUZZLE ==================
+// GAME 2: CHESS
 // ============================================================
 function initChess() {
   const puzzles = [
     {
       name: 'Checkmate in 1 — White to move',
       fen: [
-        ['♜','♞','♝','♛','♚','♝','','♜'],
-        ['♟','♟','♟','♟','','♟','♟','♟'],
-        ['','','','','♟','','',''],
-        ['','','','','','','',''],
-        ['','','♗','♟','','','',''],
-        ['','','','','','♘','',''],
-        ['♙','♙','♙','♙','♙','♙','♙','♙'],
-        ['♖','♘','♗','♕','♔','','','♖']
+        ['♜','♞','♝','♛','♚','♝','','♜'],['♟','♟','♟','♟','','♟','♟','♟'],
+        ['','','','','♟','','',''],['','','','','','','',''],
+        ['','','♗','♟','','','',''],['','','','','','♘','',''],
+        ['♙','♙','♙','♙','♙','♙','♙','♙'],['♖','♘','♗','♕','♔','','','♖']
       ],
-      hint: 'The queen can deliver checkmate!',
-      solution: {from:[7,3],to:[3,7]}
+      hint: 'The queen can deliver checkmate!', solution: {from:[7,3],to:[3,7]}
     },
     {
       name: 'Fork! — Find the Knight move',
       fen: [
-        ['♜','','♝','♛','♚','♝','♞','♜'],
-        ['♟','♟','♟','♟','','♟','♟','♟'],
-        ['','','♞','','♟','','',''],
-        ['','','','','','','',''],
-        ['','','','♙','','','',''],
-        ['','','♘','','','','',''],
-        ['♙','♙','♙','','♙','♙','♙','♙'],
-        ['♖','','♗','♕','♔','♗','','♖']
+        ['♜','','♝','♛','♚','♝','♞','♜'],['♟','♟','♟','♟','','♟','♟','♟'],
+        ['','','♞','','♟','','',''],['','','','','','','',''],
+        ['','','','♙','','','',''],['','','♘','','','','',''],
+        ['♙','♙','♙','','♙','♙','♙','♙'],['♖','','♗','♕','♔','♗','','♖']
       ],
-      hint: 'The knight can fork king and rook!',
-      solution: {from:[5,2],to:[3,3]}
+      hint: 'The knight can fork king and rook!', solution: {from:[5,2],to:[3,3]}
     }
   ];
 
   let puzzleIdx = 0, selectedCell = null, score = 0;
-
   const area = document.getElementById('game-area');
   const renderPuzzle = () => {
     const p = puzzles[puzzleIdx % puzzles.length];
     area.innerHTML = `
       <p style="text-align:center;color:#FBBF24;font-weight:700;margin-bottom:0.5rem">${p.name}</p>
-      <p style="text-align:center;color:#9CA3AF;font-size:0.85rem;margin-bottom:0.5rem">💡 Hint: ${p.hint}</p>
+      <p style="text-align:center;color:#9CA3AF;font-size:0.85rem;margin-bottom:0.5rem">💡 ${p.hint}</p>
       <div class="chess-board" id="cb"></div>
       <p style="text-align:center;margin-top:1rem;color:#9CA3AF">Score: <span style="color:#FBBF24;font-weight:700">${score}</span></p>
       <p id="chess-msg" style="text-align:center;font-weight:700;margin-top:0.5rem;min-height:1.5rem"></p>
@@ -1103,14 +1067,13 @@ function initChess() {
           if (!selectedCell) {
             if (!cell.textContent) return;
             allCells.forEach(x => x.classList.remove('selected'));
-            cell.classList.add('selected');
-            selectedCell = {r,c};
+            cell.classList.add('selected'); selectedCell = {r,c};
           } else {
             const sol = p.solution;
             if (selectedCell.r===sol.from[0]&&selectedCell.c===sol.from[1]&&r===sol.to[0]&&c===sol.to[1]) {
               score++;
               document.getElementById('chess-msg').innerHTML = '<span style="color:#34D399">✅ Brilliant move!</span>';
-              setTimeout(() => { puzzleIdx++; if(puzzleIdx>=puzzles.length) showWin('Chess genius! You found every combination!','♟️','Chess Champion!'); else renderPuzzle(); }, 1200);
+              setTimeout(() => { puzzleIdx++; if(puzzleIdx>=puzzles.length) showWin('Chess genius!','♟️','Chess Champion!'); else renderPuzzle(); }, 1200);
             } else {
               document.getElementById('chess-msg').innerHTML = '<span style="color:#F87171">❌ Not quite — try again!</span>';
               allCells.forEach(x => x.classList.remove('selected'));
@@ -1126,7 +1089,7 @@ function initChess() {
 }
 
 // ============================================================
-// ==================== GAME 3: JOKES =========================
+// GAME 3: JOKES
 // ============================================================
 function initJokes() {
   const jokes = [
@@ -1141,7 +1104,7 @@ function initJokes() {
     {setup:"What do you call a sleeping dinosaur?", punch:"A dino-snore! 🦕"},
     {setup:"Why did the scarecrow win an award?", punch:"Because he was outstanding in his field! 🌾"}
   ];
-  let idx = 0, score = 0, revealed = false;
+  let idx = 0, score = 0;
 
   const render = () => {
     const j = jokes[idx];
@@ -1164,17 +1127,12 @@ function initJokes() {
       document.getElementById('lm').style.display = 'flex';
     };
   };
-
-  window.ratejoke = (pts) => {
-    score += pts; idx++;
-    if (idx >= jokes.length) showWin(`You scored ${score} laugh points! Comedy critic!`,'😂','Joke Master!');
-    else render();
-  };
+  window.ratejoke = (pts) => { score += pts; idx++; if(idx>=jokes.length) showWin(`You scored ${score} laugh points!`,'😂','Joke Master!'); else render(); };
   render();
 }
 
 // ============================================================
-// ==================== GAME 4: EMOJI PUZZLE ==================
+// GAME 4: EMOJI PUZZLE
 // ============================================================
 function initEmojiPuzzle() {
   const puzzles = [
@@ -1211,7 +1169,7 @@ function initEmojiPuzzle() {
         if (opt === p.answer) {
           score++; btn.style.background='rgba(52,211,153,0.3)'; btn.style.borderColor='#34D399';
           document.getElementById('ep-msg').innerHTML='<span style="color:#34D399">✅ Correct! 🎉</span>';
-          setTimeout(() => { idx++; if(idx>=puzzles.length) showWin(`Score: ${score}/${puzzles.length}! Emoji genius!`,'🤔','Emoji Master!'); else render(); }, 900);
+          setTimeout(() => { idx++; if(idx>=puzzles.length) showWin(`Score: ${score}/${puzzles.length}!`,'🤔','Emoji Master!'); else render(); }, 900);
         } else {
           btn.style.background='rgba(248,113,113,0.2)'; btn.style.borderColor='#F87171';
           document.getElementById('ep-msg').innerHTML='<span style="color:#F87171">❌ Wrong! Try again!</span>';
@@ -1224,7 +1182,7 @@ function initEmojiPuzzle() {
 }
 
 // ============================================================
-// ==================== GAME 5: MEMORY MATCH ==================
+// GAME 5: MEMORY
 // ============================================================
 function initMemory() {
   const emojis = ['🍕','⭐','🦋','🌈','🎯','🚀','💎','🌺'];
@@ -1237,7 +1195,7 @@ function initMemory() {
     <div class="memory-grid" id="mg"></div>
   `;
   const mg = document.getElementById('mg');
-  const els = cards.map((emoji, i) => {
+  cards.map((emoji, i) => {
     const card = document.createElement('div');
     card.className = 'memory-card';
     card.innerHTML = `<div class="memory-card-inner"><div class="memory-card-front">?</div><div class="memory-card-back">${emoji}</div></div>`;
@@ -1251,19 +1209,18 @@ function initMemory() {
         if (flipped[0].emoji === flipped[1].emoji) {
           flipped.forEach(f => f.card.classList.add('matched'));
           matched += 2; flipped = []; locked = false;
-          if (matched === cards.length) showWin(`Matched all pairs in ${moves} moves!`,'🧩','Memory Master!');
+          if (matched === cards.length) showWin(`All pairs in ${moves} moves!`,'🧩','Memory Master!');
         } else {
           setTimeout(() => { flipped.forEach(f => f.card.classList.remove('flipped')); flipped=[]; locked=false; }, 900);
         }
       }
     };
     mg.appendChild(card);
-    return card;
   });
 }
 
 // ============================================================
-// ==================== GAME 6: WORD SCRAMBLE =================
+// GAME 6: WORD SCRAMBLE
 // ============================================================
 function initWordScramble() {
   const words = [
@@ -1277,14 +1234,12 @@ function initWordScramble() {
     {word:'TELESCOPE',hint:'Looks at stars 🔭'}
   ];
   let idx = 0, score = 0;
-
   const scramble = w => w.split('').sort(() => Math.random()-0.5).join('');
 
   const render = () => {
     const {word, hint} = words[idx];
     let sc = scramble(word);
     while (sc === word) sc = scramble(word);
-
     document.getElementById('game-area').innerHTML = `
       <div style="text-align:center;max-width:500px;margin:0 auto">
         <p style="color:#9CA3AF;margin-bottom:0.5rem">💡 Hint: ${hint}</p>
@@ -1300,7 +1255,6 @@ function initWordScramble() {
     `;
     document.getElementById('si').addEventListener('keydown', e => { if(e.key==='Enter') checkScramble(word); });
   };
-
   window.checkScramble = (word) => {
     const val = document.getElementById('si').value.toUpperCase().trim();
     if (val === word) {
@@ -1309,17 +1263,15 @@ function initWordScramble() {
       document.getElementById('sw').style.color = '#34D399';
       setTimeout(() => { idx++; if(idx>=words.length) showWin(`Unscrambled ${score}/${words.length} words!`,'🔤','Word Wizard!'); else render(); }, 800);
     } else {
-      document.getElementById('sm-msg').innerHTML = '<span style="color:#F87171">❌ Not quite! Try again.</span>';
-      document.getElementById('si').style.borderColor = '#F87171';
-      setTimeout(() => { if(document.getElementById('si')) document.getElementById('si').style.borderColor = ''; }, 800);
+      document.getElementById('sm-msg').innerHTML = '<span style="color:#F87171">❌ Not quite!</span>';
     }
   };
-  window.skipScramble = () => { idx++; if(idx>=words.length) showWin(`Unscrambled ${score}/${words.length} words!`,'🔤','Word Wizard!'); else render(); };
+  window.skipScramble = () => { idx++; if(idx>=words.length) showWin(`${score} words unscrambled!`,'🔤','Word Wizard!'); else render(); };
   render();
 }
 
 // ============================================================
-// ==================== GAME 7: HANGMAN =======================
+// GAME 7: HANGMAN
 // ============================================================
 function initHangman() {
   const wordList = [
@@ -1334,7 +1286,6 @@ function initHangman() {
   let guessed = new Set(), wrong = 0, maxWrong = 6;
 
   const render = () => {
-    const displayWord = word.split('').map(l => guessed.has(l) ? l : '_').join('');
     const lives = maxWrong - wrong;
     const hangEmojis = ['😊','🙂','😐','😟','😰','😱','💀'];
     const area = document.getElementById('game-area');
@@ -1351,8 +1302,7 @@ function initHangman() {
     const hk = document.getElementById('hk');
     'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(l => {
       const btn = document.createElement('button');
-      btn.className = 'hangman-key';
-      btn.textContent = l;
+      btn.className = 'hangman-key'; btn.textContent = l;
       const isGuessed = guessed.has(l);
       if (isGuessed) { btn.disabled = true; btn.classList.add(word.includes(l)?'correct':'wrong'); }
       btn.onclick = () => {
@@ -1360,7 +1310,7 @@ function initHangman() {
         if (!word.includes(l)) wrong++;
         if (wrong >= maxWrong) { render(); document.getElementById('hm-msg').innerHTML = `<span style="color:#F87171">💀 Game Over! Word was: <b>${word}</b></span>`; return; }
         const newDisplay = word.split('').map(l => guessed.has(l)?l:'_').join('');
-        if (!newDisplay.includes('_')) { render(); showWin(`You guessed "${word}" with ${maxWrong-wrong} lives left!`,'🕹️','Hangman Hero!'); return; }
+        if (!newDisplay.includes('_')) { render(); showWin(`You guessed "${word}"!`,'🕹️','Hangman Hero!'); return; }
         render();
       };
       hk.appendChild(btn);
@@ -1370,7 +1320,7 @@ function initHangman() {
 }
 
 // ============================================================
-// ==================== GAME 8: SIMON PATTERN =================
+// GAME 8: PATTERN SIMON
 // ============================================================
 function initPattern() {
   const emojis = ['🔴','🔵','🟡','🟢','🟣','🟠','⚪','🟤'];
@@ -1410,7 +1360,7 @@ function initPattern() {
         document.getElementById('pat-lvl').textContent = level;
         document.getElementById('pat-msg').textContent = '✅ Correct! Watch next…';
         playerSeq = []; playerTurn = false;
-        if (level > 10) { showWin(`Completed all 10 levels with score ${score}!`,'🎯','Pattern Pro!'); return; }
+        if (level > 10) { showWin(`All 10 levels done! Score: ${score}`,'🎯','Pattern Pro!'); return; }
         setTimeout(playSequence, 1000);
       }
     };
@@ -1432,7 +1382,7 @@ function initPattern() {
       flashCell(cells[sequence[i]], '#FF6B9D'); i++;
       if (i >= sequence.length) {
         clearInterval(iv);
-        setTimeout(() => { playerTurn = true; document.getElementById('pat-msg').textContent = 'Your turn! Repeat the pattern.'; }, 400);
+        setTimeout(() => { playerTurn = true; document.getElementById('pat-msg').textContent = 'Your turn!'; }, 400);
       }
     }, 700);
   }
@@ -1447,13 +1397,13 @@ function initPattern() {
 }
 
 // ============================================================
-// ==================== GAME 9: RIDDLE ========================
+// GAME 9: RIDDLE
 // ============================================================
 function initRiddle() {
   const riddles = [
     {q:"I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?", a:"ECHO", hints:["Think about sound…","It comes back to you!"]},
     {q:"The more you take, the more you leave behind. What am I?", a:"FOOTSTEPS", hints:["Think about walking…","They stay where you walked!"]},
-    {q:"I have cities, but no houses live there. I have mountains, but no trees grow there. I have water, but no fish swim there. What am I?", a:"MAP", hints:["Think about geography…","You use it to navigate!"]},
+    {q:"I have cities, but no houses live there. I have mountains, but no trees grow there. What am I?", a:"MAP", hints:["Think about geography…","You use it to navigate!"]},
     {q:"I'm tall when I'm young, and I'm short when I'm old. What am I?", a:"CANDLE", hints:["Think about wax…","It melts over time!"]},
     {q:"What has hands but can't clap?", a:"CLOCK", hints:["Think about time…","It hangs on your wall!"]},
     {q:"What gets wetter the more it dries?", a:"TOWEL", hints:["Think about the bathroom…","You use it after a shower!"]}
@@ -1478,31 +1428,26 @@ function initRiddle() {
     hintIdx = 0;
     document.getElementById('ri').addEventListener('keydown', e => { if(e.key==='Enter') checkRiddle(r.a); });
   };
-
   window.checkRiddle = (ans) => {
     const val = document.getElementById('ri').value.toUpperCase().trim();
     if (val === ans) {
       score++;
-      document.getElementById('rm-msg').innerHTML = '<span style="color:#34D399">🎉 Brilliant! You got it!</span>';
-      setTimeout(() => { idx++; hintIdx=0; if(idx>=riddles.length) showWin(`Solved ${score}/${riddles.length} riddles! Genius!`,'🔮','Riddle Master!'); else render(); }, 900);
+      document.getElementById('rm-msg').innerHTML = '<span style="color:#34D399">🎉 Brilliant!</span>';
+      setTimeout(() => { idx++; hintIdx=0; if(idx>=riddles.length) showWin(`Solved ${score}/${riddles.length} riddles!`,'🔮','Riddle Master!'); else render(); }, 900);
     } else {
-      document.getElementById('rm-msg').innerHTML = '<span style="color:#F87171">❌ Not quite! Try again.</span>';
+      document.getElementById('rm-msg').innerHTML = '<span style="color:#F87171">❌ Not quite!</span>';
     }
   };
-
   window.showHint = () => {
     const r = riddles[idx];
-    if (hintIdx < r.hints.length) {
-      document.getElementById('hint-box').textContent = '💡 ' + r.hints[hintIdx++];
-    } else {
-      document.getElementById('hint-box').textContent = '💡 Answer: ' + r.a;
-    }
+    if (hintIdx < r.hints.length) document.getElementById('hint-box').textContent = '💡 ' + r.hints[hintIdx++];
+    else document.getElementById('hint-box').textContent = '💡 Answer: ' + r.a;
   };
   render();
 }
 
 // ============================================================
-// ==================== GAME 10: TYPING SPEED =================
+// GAME 10: TYPING SPEED
 // ============================================================
 function initTyping() {
   const sentences = [
@@ -1512,8 +1457,7 @@ function initTyping() {
     "Every great journey begins with a single step",
     "Knowledge is the key that unlocks every door"
   ];
-  let sIdx = 0, startTime = null, finished = false;
-  let bestWPM = 0;
+  let sIdx = 0, startTime = null, finished = false, bestWPM = 0;
 
   const render = () => {
     const sentence = sentences[sIdx];
@@ -1529,10 +1473,8 @@ function initTyping() {
         <div id="ty-msg" style="text-align:center;font-weight:700;min-height:1.5rem;margin-top:0.5rem"></div>
       </div>
     `;
-    const td = document.getElementById('td');
-    const ti = document.getElementById('ti');
+    const td = document.getElementById('td'), ti = document.getElementById('ti');
     finished = false; startTime = null;
-
     const updateDisplay = (typed) => {
       td.innerHTML = sentence.split('').map((ch, i) => {
         if (i < typed.length) return `<span class="${typed[i]===ch?'correct-char':'wrong-char'}">${ch}</span>`;
@@ -1541,34 +1483,487 @@ function initTyping() {
       }).join('');
     };
     updateDisplay('');
-
     ti.addEventListener('input', () => {
       if (finished) return;
       const typed = ti.value;
       if (!startTime && typed.length > 0) startTime = Date.now();
       updateDisplay(typed);
-
       const elapsed = (Date.now() - startTime) / 1000;
       const words = typed.trim().split(' ').length;
       const wpm = Math.round((words / elapsed) * 60) || 0;
       const correct = typed.split('').filter((c,i) => c === sentence[i]).length;
       const acc = typed.length ? Math.round((correct/typed.length)*100) : 100;
-
       document.getElementById('wpm-val').textContent = wpm;
       document.getElementById('acc-val').textContent = acc + '%';
       document.getElementById('time-val').textContent = Math.round(elapsed) + 's';
-
       if (typed === sentence) {
         finished = true;
         if (wpm > bestWPM) bestWPM = wpm;
         sIdx++;
-        if (sIdx >= sentences.length) {
-          showWin(`Best WPM: ${bestWPM}! Typing champion!`,'⌨️','Speed Demon!');
+        if (sIdx >= sentences.length) showWin(`Best WPM: ${bestWPM}!`,'⌨️','Speed Demon!');
+        else { document.getElementById('ty-msg').innerHTML = `<span style="color:#34D399">✅ ${wpm} WPM — Next sentence…</span>`; setTimeout(render, 1200); }
+      }
+    });
+  };
+  render();
+}
+
+// ============================================================
+// ★ NEW GAME 11: FRUIT CUTTING (Canvas-based)
+// ============================================================
+function initFruitCutting() {
+  const area = document.getElementById('game-area');
+  area.innerHTML = `
+    <div class="fruit-hud">
+      <div class="fruit-score-box"><div class="fruit-score-val" id="fc-score">0</div><div class="fruit-score-lbl">Score</div></div>
+      <div class="fruit-score-box"><div class="fruit-score-val" id="fc-lives">❤️❤️❤️</div><div class="fruit-score-lbl">Lives</div></div>
+      <div class="fruit-score-box"><div class="fruit-score-val" id="fc-combo" style="color:#FF6B9D">x1</div><div class="fruit-score-lbl">Combo</div></div>
+    </div>
+    <div id="fruit-canvas-wrap">
+      <canvas id="fruitCanvas" width="540" height="400"></canvas>
+    </div>
+    <p style="text-align:center;color:#9CA3AF;margin-top:0.75rem;font-size:0.85rem">✂️ Slice the fruits — miss 3 and it's game over!</p>
+  `;
+
+  const canvas = document.getElementById('fruitCanvas');
+  const ctx = canvas.getContext('2d');
+  const FRUITS = ['🍎','🍊','🍋','🍇','🍓','🍑','🥭','🍍','🍌','🍉','🥝','🫐'];
+  const BOMBS = ['💣'];
+
+  let fruits = [], score = 0, lives = 3, combo = 1, running = true;
+  let sliceTrail = [], lastSliceTime = 0;
+  let animFrame;
+
+  function spawnFruit() {
+    const isBomb = Math.random() < 0.12;
+    const emoji = isBomb ? '💣' : FRUITS[~~(Math.random()*FRUITS.length)];
+    const x = 60 + Math.random() * (canvas.width - 120);
+    const vy = -(8 + Math.random() * 6);
+    const vx = (Math.random() - 0.5) * 3;
+    fruits.push({ x, y: canvas.height + 30, vx, vy, emoji, isBomb, size: 38, sliced: false, slicedAt: 0, opacity: 1, rotation: Math.random()*360, rotSpeed: (Math.random()-0.5)*5 });
+  }
+
+  function updateScoreUI() {
+    document.getElementById('fc-score').textContent = score;
+    document.getElementById('fc-lives').textContent = '❤️'.repeat(lives) + '🖤'.repeat(3-lives);
+    document.getElementById('fc-combo').textContent = `x${combo}`;
+  }
+
+  let particles = [];
+  function spawnParticles(x, y, color) {
+    for (let i = 0; i < 8; i++) {
+      particles.push({
+        x, y,
+        vx: (Math.random()-0.5)*8,
+        vy: (Math.random()-0.5)*8,
+        life: 1, color
+      });
+    }
+  }
+
+  function gameLoop() {
+    if (!running) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw trail
+    if (sliceTrail.length > 1) {
+      ctx.beginPath();
+      ctx.moveTo(sliceTrail[0].x, sliceTrail[0].y);
+      sliceTrail.forEach(p => ctx.lineTo(p.x, p.y));
+      ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    }
+    // Fade trail
+    sliceTrail = sliceTrail.filter((p,i) => i > sliceTrail.length - 12);
+
+    // Update particles
+    particles = particles.filter(p => p.life > 0);
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.vy += 0.3; p.life -= 0.05;
+      ctx.globalAlpha = p.life;
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 5 * p.life, 0, Math.PI*2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    });
+
+    // Update & draw fruits
+    fruits = fruits.filter(f => {
+      if (f.sliced) {
+        f.opacity -= 0.06;
+        f.y -= 3;
+        return f.opacity > 0;
+      }
+      f.x += f.vx; f.y += f.vy; f.vy += 0.35;
+      f.rotation += f.rotSpeed;
+      if (f.y > canvas.height + 50) {
+        if (!f.isBomb && !f.sliced) {
+          lives--; combo = 1; updateScoreUI();
+          if (lives <= 0) { endGame(); return false; }
+        }
+        return false;
+      }
+      ctx.save();
+      ctx.globalAlpha = f.opacity;
+      ctx.translate(f.x, f.y);
+      ctx.rotate(f.rotation * Math.PI / 180);
+      ctx.font = `${f.size}px serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(f.emoji, 0, 0);
+      ctx.restore();
+      return true;
+    });
+
+    animFrame = requestAnimationFrame(gameLoop);
+  }
+
+  function sliceFruitAt(sx, sy) {
+    fruits.forEach(f => {
+      if (f.sliced) return;
+      const dist = Math.hypot(f.x - sx, f.y - sy);
+      if (dist < f.size) {
+        f.sliced = true;
+        if (f.isBomb) {
+          lives--; combo = 1;
+          spawnParticles(f.x, f.y, '#F87171');
+          updateScoreUI();
+          if (lives <= 0) endGame();
         } else {
-          document.getElementById('ty-msg').innerHTML = `<span style="color:#34D399">✅ Perfect! ${wpm} WPM — Next sentence loading…</span>`;
-          setTimeout(render, 1200);
+          score += combo;
+          combo = Math.min(combo + 1, 8);
+          spawnParticles(f.x, f.y, ['#FF6B9D','#FBBF24','#34D399','#60A5FA'][~~(Math.random()*4)]);
+          updateScoreUI();
         }
       }
+    });
+  }
+
+  // Mouse/touch input
+  const wrap = document.getElementById('fruit-canvas-wrap');
+  const getPos = (e, isTouch) => {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const src = isTouch ? e.touches[0] : e;
+    return { x: (src.clientX - rect.left) * scaleX, y: (src.clientY - rect.top) * scaleY };
+  };
+  let isSlicing = false;
+  canvas.addEventListener('mousedown', e => { isSlicing = true; sliceTrail = []; });
+  canvas.addEventListener('mouseup', () => { isSlicing = false; sliceTrail = []; });
+  canvas.addEventListener('mousemove', e => {
+    if (!isSlicing) return;
+    const pos = getPos(e, false);
+    sliceTrail.push(pos);
+    sliceFruitAt(pos.x, pos.y);
+  });
+  canvas.addEventListener('touchstart', e => { e.preventDefault(); isSlicing = true; sliceTrail = []; }, {passive:false});
+  canvas.addEventListener('touchend', () => { isSlicing = false; sliceTrail = []; });
+  canvas.addEventListener('touchmove', e => {
+    e.preventDefault();
+    if (!isSlicing) return;
+    const pos = getPos(e, true);
+    sliceTrail.push(pos);
+    sliceFruitAt(pos.x, pos.y);
+  }, {passive:false});
+
+  function endGame() {
+    running = false;
+    cancelAnimationFrame(animFrame);
+    clearInterval(spawnInterval);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'rgba(15,10,30,0.85)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = 'bold 40px Fredoka One, cursive';
+    ctx.fillStyle = '#FF6B9D';
+    ctx.textAlign = 'center';
+    ctx.fillText('Game Over!', canvas.width/2, canvas.height/2 - 30);
+    ctx.font = '28px Nunito, sans-serif';
+    ctx.fillStyle = '#FBBF24';
+    ctx.fillText(`Final Score: ${score}`, canvas.width/2, canvas.height/2 + 20);
+    setTimeout(() => showWin(`You sliced ${score} fruits! 🍓 Knife skills on point!`, '🍉', 'Fruit Ninja!'), 1000);
+  }
+
+  let spawnInterval;
+  gameLoop();
+  spawnFruit();
+  spawnInterval = setInterval(() => { if(running) spawnFruit(); }, 1100);
+  updateScoreUI();
+}
+
+// ============================================================
+// ★ NEW GAME 12: FOOD QUIZ
+// ============================================================
+function initFoodQuiz() {
+  const questions = [
+    { q: '🍕 Which country did Pizza originate from?', options: ['Italy', 'USA', 'France', 'Greece'], answer: 'Italy', emoji: '🇮🇹' },
+    { q: '🍣 What is the main ingredient in traditional Sushi rice?', options: ['Salt', 'Vinegar', 'Sugar', 'Butter'], answer: 'Vinegar', emoji: '🍶' },
+    { q: '🌮 Tacos are a traditional food from which country?', options: ['Spain', 'Brazil', 'Mexico', 'Colombia'], answer: 'Mexico', emoji: '🇲🇽' },
+    { q: '🍜 Ramen noodles originally come from which country?', options: ['China', 'Japan', 'Korea', 'Vietnam'], answer: 'Japan', emoji: '🇯🇵' },
+    { q: '🧆 Falafel is made from which ingredient?', options: ['Lentils', 'Chickpeas', 'Potatoes', 'Rice'], answer: 'Chickpeas', emoji: '🟡' },
+    { q: '🍫 Which country produces the most chocolate?', options: ['Belgium', 'Switzerland', 'Ivory Coast', 'Ghana'], answer: 'Ivory Coast', emoji: '🍫' },
+    { q: '🍛 Biryani is most associated with which cuisine?', options: ['Thai', 'Indian', 'Egyptian', 'Turkish'], answer: 'Indian', emoji: '🇮🇳' },
+    { q: '🥐 Croissants are famously associated with which country?', options: ['France', 'Austria', 'Germany', 'Belgium'], answer: 'France', emoji: '🇫🇷' },
+    { q: '🍦 Which country invented ice cream?', options: ['USA', 'Italy', 'China', 'England'], answer: 'China', emoji: '🇨🇳' },
+    { q: '🥘 Paella is a signature dish from which country?', options: ['Portugal', 'Greece', 'Spain', 'Morocco'], answer: 'Spain', emoji: '🇪🇸' }
+  ];
+
+  let idx = 0, score = 0, answered = false;
+
+  const render = () => {
+    const q = questions[idx];
+    const shuffled = [...q.options].sort(() => Math.random() - 0.5);
+    document.getElementById('game-area').innerHTML = `
+      <div class="food-quiz-card">
+        <div style="font-size:2.5rem;margin-bottom:0.5rem;text-align:center">${q.emoji}</div>
+        <div class="food-question">${q.q}</div>
+        <div class="food-options" id="fq-opts"></div>
+        <div id="fq-msg" style="text-align:center;font-weight:700;min-height:2rem;margin-top:1rem"></div>
+      </div>
+      <p style="text-align:center;color:#9CA3AF;margin-top:1rem">Question ${idx+1}/${questions.length} • Score: <span style="color:#FBBF24;font-weight:700">${score}</span></p>
+    `;
+    const opts = document.getElementById('fq-opts');
+    answered = false;
+    shuffled.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'food-opt-btn';
+      btn.textContent = opt;
+      btn.onclick = () => {
+        if (answered) return;
+        answered = true;
+        opts.querySelectorAll('.food-opt-btn').forEach(b => { b.disabled = true; });
+        if (opt === q.answer) {
+          score++; btn.classList.add('correct');
+          document.getElementById('fq-msg').innerHTML = '<span style="color:#34D399">✅ Delicious answer! Correct! 🎉</span>';
+        } else {
+          btn.classList.add('wrong');
+          opts.querySelectorAll('.food-opt-btn').forEach(b => { if(b.textContent === q.answer) b.classList.add('correct'); });
+          document.getElementById('fq-msg').innerHTML = `<span style="color:#F87171">❌ Wrong! Answer: ${q.answer}</span>`;
+        }
+        setTimeout(() => { idx++; if(idx >= questions.length) showWin(`You scored ${score}/${questions.length}! 🍴 Food Guru!`, '🍕', 'Food Guru!'); else render(); }, 1200);
+      };
+      opts.appendChild(btn);
+    });
+  };
+  render();
+}
+
+// ============================================================
+// ★ NEW GAME 13: SHOPPING DASH
+// ============================================================
+function initShoppingDash() {
+  const levels = [
+    {
+      budget: 500,
+      list: ['👗 Dress', '👠 Heels', '👜 Bag'],
+      shop: [
+        {name:'👗 Dress', price:180, isTarget:true},
+        {name:'🧣 Scarf', price:60, isTarget:false},
+        {name:'👠 Heels', price:220, isTarget:true},
+        {name:'🧢 Cap', price:40, isTarget:false},
+        {name:'👜 Bag', price:95, isTarget:true},
+        {name:'🕶️ Sunglasses', price:75, isTarget:false},
+      ]
+    },
+    {
+      budget: 700,
+      list: ['💄 Lipstick', '💍 Ring', '🧴 Skincare', '👒 Hat'],
+      shop: [
+        {name:'💄 Lipstick', price:120, isTarget:true},
+        {name:'🧦 Socks', price:30, isTarget:false},
+        {name:'💍 Ring', price:280, isTarget:true},
+        {name:'🧴 Skincare', price:150, isTarget:true},
+        {name:'🎀 Ribbon', price:20, isTarget:false},
+        {name:'👒 Hat', price:110, isTarget:true},
+        {name:'🎒 Backpack', price:200, isTarget:false},
+        {name:'⌚ Watch', price:350, isTarget:false},
+      ]
+    },
+    {
+      budget: 600,
+      list: ['👟 Sneakers', '🧥 Jacket', '📱 Phone Case'],
+      shop: [
+        {name:'👟 Sneakers', price:250, isTarget:true},
+        {name:'🧤 Gloves', price:55, isTarget:false},
+        {name:'🧥 Jacket', price:230, isTarget:true},
+        {name:'🎩 Top Hat', price:95, isTarget:false},
+        {name:'📱 Phone Case', price:85, isTarget:true},
+        {name:'🌂 Umbrella', price:70, isTarget:false},
+      ]
+    }
+  ];
+
+  let lvlIdx = 0, cartTotal = 0, checked = [];
+
+  const render = () => {
+    const lvl = levels[lvlIdx];
+    cartTotal = 0; checked = [];
+    const area = document.getElementById('game-area');
+    area.innerHTML = `
+      <div class="shop-area">
+        <div class="budget-bar">
+          💰 Budget: <span class="budget-display" id="sh-budget">Rs. ${lvl.budget}</span>
+          &nbsp;|&nbsp; Spent: <span class="budget-display" id="sh-spent" style="color:#FF6B9D">Rs. 0</span>
+        </div>
+        <div class="shop-list-card">
+          <div class="shop-list-title">🛍️ Shopping List (Level ${lvlIdx+1}/${levels.length})</div>
+          ${lvl.list.map(item => `<div class="shop-item-row" id="li-${item.replace(/[^a-z]/gi,'')}">${item}</div>`).join('')}
+        </div>
+        <p style="color:#9CA3AF;text-align:center;margin-bottom:0.5rem;font-size:0.9rem">Tap only the items on your list — stay within budget!</p>
+        <div class="shop-grid" id="sh-grid"></div>
+        <div id="sh-msg" style="text-align:center;font-weight:700;min-height:2rem;margin-top:0.5rem"></div>
+      </div>
+    `;
+
+    const shuffled = [...lvl.shop].sort(() => Math.random()-0.5);
+    const grid = document.getElementById('sh-grid');
+    shuffled.forEach(item => {
+      const btn = document.createElement('button');
+      btn.className = 'shop-item-btn';
+      btn.innerHTML = `${item.name}<br><small style="color:#FBBF24">Rs. ${item.price}</small>`;
+      btn.onclick = () => {
+        if (btn.disabled) return;
+        if (!item.isTarget) {
+          btn.classList.add('wrong-pick');
+          document.getElementById('sh-msg').innerHTML = `<span style="color:#F87171">❌ That's not on your list!</span>`;
+          setTimeout(() => { btn.classList.remove('wrong-pick'); document.getElementById('sh-msg').innerHTML=''; }, 800);
+          return;
+        }
+        if (cartTotal + item.price > lvl.budget) {
+          btn.classList.add('wrong-pick');
+          document.getElementById('sh-msg').innerHTML = `<span style="color:#F87171">💸 Over budget! Can't afford this!</span>`;
+          setTimeout(() => { btn.classList.remove('wrong-pick'); document.getElementById('sh-msg').innerHTML=''; }, 800);
+          return;
+        }
+        btn.classList.add('correct-pick'); btn.disabled = true;
+        cartTotal += item.price; checked.push(item.name);
+        document.getElementById('sh-spent').textContent = `Rs. ${cartTotal}`;
+        // Check the list item
+        const listEl = document.getElementById('li-' + item.name.replace(/[^a-z]/gi,''));
+        if (listEl) { listEl.classList.add('checked'); listEl.innerHTML += ' ✅'; }
+        document.getElementById('sh-msg').innerHTML = `<span style="color:#34D399">🛒 Added! ${item.name}</span>`;
+        if (checked.length === lvl.list.length) {
+          setTimeout(() => {
+            lvlIdx++;
+            if (lvlIdx >= levels.length) {
+              showWin(`You shopped all ${levels.length} levels! Rs. ${cartTotal} spent wisely!`, '🛍️', 'Shopping Queen!');
+            } else {
+              document.getElementById('sh-msg').innerHTML = `<span style="color:#A78BFA">🎉 Level complete! Next level…</span>`;
+              setTimeout(render, 1200);
+            }
+          }, 600);
+        }
+      };
+      grid.appendChild(btn);
+    });
+  };
+  render();
+}
+
+// ============================================================
+// ★ NEW GAME 14: FASHION MATCH
+// ============================================================
+function initFashionMatch() {
+  const rounds = [
+    {
+      theme: '🌸 Spring Picnic Look',
+      outfit: [
+        { slot: 'Top', correct: '🌸 Floral Blouse', options: ['🌸 Floral Blouse', '🧥 Heavy Coat', '🥋 Karate Suit', '🎽 Sports Jersey'] },
+        { slot: 'Bottom', correct: '🩱 White Skirt', options: ['🩱 White Skirt', '🩳 Swim Shorts', '👖 Ripped Jeans', '🩲 Underwear'] },
+        { slot: 'Shoes', correct: '🩴 Sandals', options: ['🩴 Sandals', '🥾 Hiking Boots', '👟 Basketball Shoes', '🥿 Ballet Flats'] }
+      ]
+    },
+    {
+      theme: '🌃 Night Out Glam',
+      outfit: [
+        { slot: 'Dress', correct: '✨ Sequin Dress', options: ['✨ Sequin Dress', '🥼 Lab Coat', '🧤 Mittens', '🩱 Swimsuit'] },
+        { slot: 'Bag', correct: '👛 Clutch Bag', options: ['👛 Clutch Bag', '🎒 School Bag', '🧳 Suitcase', '🪣 Bucket'] },
+        { slot: 'Accessory', correct: '💎 Diamond Earrings', options: ['💎 Diamond Earrings', '⛑️ Hard Hat', '🎧 Headphones', '🥽 Goggles'] }
+      ]
+    },
+    {
+      theme: '🏖️ Beach Day Vibes',
+      outfit: [
+        { slot: 'Top', correct: '👙 Bikini Top', options: ['👙 Bikini Top', '🧥 Puffer Jacket', '👔 Formal Shirt', '🥋 Kimono'] },
+        { slot: 'Cover-Up', correct: '🩳 Shorts', options: ['🩳 Shorts', '👗 Evening Gown', '🧣 Wool Scarf', '🥻 Saree'] },
+        { slot: 'Accessory', correct: '🕶️ Sunglasses', options: ['🕶️ Sunglasses', '🎩 Top Hat', '🪖 Helmet', '🎓 Graduation Cap'] }
+      ]
+    },
+    {
+      theme: '💼 Power Office Look',
+      outfit: [
+        { slot: 'Top', correct: '👔 Blazer', options: ['👔 Blazer', '🌸 Crop Top', '🩱 Swimsuit', '🥋 Judo Gi'] },
+        { slot: 'Bottom', correct: '👖 Tailored Pants', options: ['👖 Tailored Pants', '🩲 Shorts', '🎿 Ski Pants', '🩻 X-Ray'] },
+        { slot: 'Shoes', correct: '👠 Heels', options: ['👠 Heels', '🩴 Flip Flops', '🥿 House Slippers', '⛸️ Ice Skates'] }
+      ]
+    }
+  ];
+
+  let roundIdx = 0, pieceIdx = 0, score = 0;
+
+  const render = () => {
+    const round = rounds[roundIdx];
+    const piece = round.outfit[pieceIdx];
+    const shuffled = [...piece.options].sort(() => Math.random()-0.5);
+
+    document.getElementById('game-area').innerHTML = `
+      <div class="fashion-area">
+        <div style="font-family:'Fredoka One',cursive;font-size:1.5rem;text-align:center;margin-bottom:0.5rem;color:#A78BFA">${round.theme}</div>
+        <p style="text-align:center;color:#9CA3AF;margin-bottom:0.75rem">Round ${roundIdx+1}/${rounds.length} • Score: <span style="color:#A78BFA;font-weight:700">${score}</span></p>
+
+        <div class="outfit-display" id="outfit-slots">
+          ${round.outfit.map((p,i) => `
+            <div class="outfit-piece ${i < pieceIdx ? 'matched' : ''}">
+              <span class="outfit-piece-emoji">${i < pieceIdx ? '✅' : i === pieceIdx ? '❓' : '🔒'}</span>
+              <div class="outfit-piece-label">${p.slot}</div>
+              ${i < pieceIdx ? `<small style="color:#34D399;font-size:0.8rem">${p.correct.split(' ').slice(1).join(' ')}</small>` : ''}
+            </div>
+          `).join('')}
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:1rem;margin:1rem 0;text-align:center">
+          <p style="color:#FBBF24;font-weight:700;font-size:1rem;margin-bottom:0.75rem">👗 Choose the ${piece.slot}:</p>
+          <div class="fashion-options" id="fo"></div>
+        </div>
+
+        <div id="fm-msg" style="text-align:center;font-weight:700;min-height:2rem"></div>
+      </div>
+    `;
+
+    const fo = document.getElementById('fo');
+    shuffled.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'fashion-opt';
+      btn.textContent = opt;
+      btn.onclick = () => {
+        fo.querySelectorAll('.fashion-opt').forEach(b => b.disabled = true);
+        if (opt === piece.correct) {
+          btn.classList.add('correct'); score++;
+          document.getElementById('fm-msg').innerHTML = '<span style="color:#34D399">✨ Fab choice! Perfect match!</span>';
+        } else {
+          btn.classList.add('wrong');
+          fo.querySelectorAll('.fashion-opt').forEach(b => { if(b.textContent === piece.correct) b.classList.add('correct'); });
+          document.getElementById('fm-msg').innerHTML = `<span style="color:#F87171">❌ Not quite! Better choice: ${piece.correct}</span>`;
+        }
+        setTimeout(() => {
+          pieceIdx++;
+          if (pieceIdx >= round.outfit.length) {
+            pieceIdx = 0; roundIdx++;
+            if (roundIdx >= rounds.length) {
+              showWin(`Fashion score: ${score}! You're a style icon! 👗`, '👗', 'Fashion Queen!');
+            } else {
+              document.getElementById('fm-msg').innerHTML = '<span style="color:#A78BFA">🎉 Outfit complete! Next look…</span>';
+              setTimeout(render, 1200);
+            }
+          } else {
+            render();
+          }
+        }, 1100);
+      };
+      fo.appendChild(btn);
     });
   };
   render();
