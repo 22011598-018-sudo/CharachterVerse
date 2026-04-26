@@ -262,22 +262,40 @@
   }
   .num-btn:hover { background: rgba(167,139,250,0.4); transform: scale(1.1); }
 
-  /* CHESS */
+  /* ============ CHESS - FIXED ============ */
   .chess-board {
     display: grid; grid-template-columns: repeat(8, 1fr);
     max-width: 480px; margin: 1rem auto; border-radius: 12px; overflow: hidden;
     border: 3px solid #FBBF24; box-shadow: 0 20px 60px rgba(251,191,36,0.2);
+    user-select: none;
   }
   .chess-cell {
     aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
-    font-size: clamp(1.4rem, 4vw, 2rem); cursor: pointer; transition: all 0.2s;
+    font-size: clamp(1.4rem, 4vw, 2rem); cursor: pointer; transition: all 0.15s;
     position: relative;
   }
   .chess-cell.light { background: rgba(251,191,36,0.15); }
   .chess-cell.dark { background: rgba(251,191,36,0.05); }
-  .chess-cell.selected { background: rgba(251,191,36,0.4) !important; box-shadow: inset 0 0 0 3px #FBBF24; }
-  .chess-cell.possible { background: rgba(52,211,153,0.3) !important; }
+  .chess-cell.selected { background: rgba(251,191,36,0.5) !important; box-shadow: inset 0 0 0 3px #FBBF24; }
+  .chess-cell.possible { cursor: pointer; }
+  .chess-cell.possible::after {
+    content: ''; position: absolute;
+    width: 30%; height: 30%; border-radius: 50%;
+    background: rgba(52,211,153,0.7);
+    pointer-events: none;
+  }
+  .chess-cell.possible.has-piece::after {
+    width: 90%; height: 90%; border-radius: 0;
+    background: transparent;
+    border: 3px solid #34D399;
+    border-radius: 4px;
+  }
   .chess-cell:hover { filter: brightness(1.3); }
+  .chess-coords {
+    display: grid; grid-template-columns: 20px repeat(8, 1fr);
+    max-width: 500px; margin: 0 auto; text-align: center;
+    font-size: 0.7rem; color: #9CA3AF; font-weight: 700;
+  }
 
   /* JOKES */
   .joke-card {
@@ -348,9 +366,7 @@
   .quiz-option.wrong { background: rgba(248,113,113,0.2); border-color: #F87171; color: #F87171; }
 
   /* EMOJI PUZZLE */
-  .emoji-puzzle-area {
-    text-align: center; max-width: 550px; margin: 0 auto;
-  }
+  .emoji-puzzle-area { text-align: center; max-width: 550px; margin: 0 auto; }
   .emoji-row {
     font-size: 3rem; letter-spacing: 0.5rem; margin: 1.5rem 0;
     animation: pulseRow 2s ease-in-out infinite;
@@ -380,7 +396,7 @@
   }
   .riddle-input:focus { outline: none; border-color: #60A5FA; }
 
-  /* TYPING */
+  /* ============ TYPING - COPY PASTE BLOCKED ============ */
   .typing-area { max-width: 600px; margin: 0 auto; }
   .typing-display {
     background: rgba(255,255,255,0.05); border-radius: 16px; padding: 1.5rem;
@@ -393,6 +409,7 @@
     width: 100%; padding: 1rem; border-radius: 14px;
     background: rgba(255,255,255,0.06); border: 2px solid rgba(255,255,255,0.1);
     color: white; font-size: 1rem; font-family: 'Nunito', sans-serif;
+    user-select: none; -webkit-user-select: none;
   }
   .typing-input:focus { outline: none; border-color: #A78BFA; }
   .typing-stats {
@@ -403,20 +420,35 @@
   }
   .stat-val { font-family: 'Fredoka One', cursive; font-size: 1.8rem; color: #A78BFA; }
   .stat-lbl { font-size: 0.75rem; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.05em; }
+  .no-paste-warning {
+    background: rgba(248,113,113,0.15); border: 1px solid rgba(248,113,113,0.3);
+    border-radius: 10px; padding: 0.5rem 1rem; text-align: center;
+    color: #F87171; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem;
+    display: none;
+  }
 
-  /* PATTERN */
+  /* ============ SIMON PATTERN - HARDER ============ */
   .pattern-grid {
     display: grid; grid-template-columns: repeat(4,1fr);
-    gap: 0.5rem; max-width: 350px; margin: 1.5rem auto;
+    gap: 0.5rem; max-width: 380px; margin: 1rem auto;
   }
   .pattern-cell {
     aspect-ratio: 1; border-radius: 12px; cursor: pointer;
     background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.1);
-    transition: all 0.15s; display: flex; align-items: center; justify-content: center;
+    transition: all 0.12s; display: flex; align-items: center; justify-content: center;
     font-size: 1.5rem;
   }
-  .pattern-cell.lit { background: var(--gc, #A78BFA); box-shadow: 0 0 20px var(--gc, rgba(167,139,250,0.6)); border-color: transparent; }
-  .pattern-cell:hover { transform: scale(1.08); }
+  .pattern-cell.lit { background: var(--gc, #A78BFA); box-shadow: 0 0 25px var(--gc, rgba(167,139,250,0.8)); border-color: transparent; transform: scale(1.08); }
+  .pattern-cell:hover { transform: scale(1.06); }
+  .pattern-cell.wrong-flash { background: #F87171 !important; box-shadow: 0 0 25px rgba(248,113,113,0.8) !important; }
+  .speed-indicator {
+    display: flex; gap: 0.5rem; justify-content: center; align-items: center;
+    margin-bottom: 0.5rem; flex-wrap: wrap;
+  }
+  .speed-badge {
+    padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 800;
+    font-family: 'Fredoka One', cursive;
+  }
 
   /* HANGMAN */
   .hangman-display { text-align: center; margin: 1.5rem auto; max-width: 500px; }
@@ -443,7 +475,7 @@
   .hangman-key.correct { background: rgba(52,211,153,0.2); border-color: #34D399; }
   .lives-display { font-size: 2rem; text-align: center; margin: 0.5rem 0; }
 
-  /* ========== FRUIT CUTTING GAME ========== */
+  /* FRUIT CUTTING */
   #fruit-canvas-wrap {
     position: relative; max-width: 550px; margin: 0 auto;
     border-radius: 20px; overflow: hidden;
@@ -461,7 +493,7 @@
   .fruit-score-val { font-family: 'Fredoka One', cursive; font-size: 2rem; color: #FBBF24; }
   .fruit-score-lbl { font-size: 0.75rem; color: #9CA3AF; text-transform: uppercase; }
 
-  /* ========== FOOD QUIZ GAME ========== */
+  /* FOOD QUIZ */
   .food-quiz-card {
     background: rgba(251,191,36,0.06); border: 2px solid rgba(251,191,36,0.25);
     border-radius: 24px; padding: 2rem; max-width: 580px; margin: 0 auto;
@@ -477,7 +509,7 @@
   .food-opt-btn.correct { background: rgba(52,211,153,0.2); border-color: #34D399; color: #34D399; }
   .food-opt-btn.wrong { background: rgba(248,113,113,0.2); border-color: #F87171; color: #F87171; }
 
-  /* ========== SHOPPING DASH GAME ========== */
+  /* SHOPPING DASH */
   .shop-area { max-width: 600px; margin: 0 auto; text-align: center; }
   .shop-list-card {
     background: rgba(255,107,157,0.07); border: 2px solid rgba(255,107,157,0.25);
@@ -503,7 +535,7 @@
   .budget-bar { background: rgba(255,255,255,0.06); border-radius: 12px; padding: 0.75rem 1.25rem; margin-bottom: 1rem; }
   .budget-display { font-family: 'Fredoka One', cursive; font-size: 1.5rem; color: #34D399; }
 
-  /* ========== FASHION MATCH GAME ========== */
+  /* FASHION MATCH */
   .fashion-area { max-width: 560px; margin: 0 auto; text-align: center; }
   .outfit-display {
     display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0;
@@ -682,61 +714,21 @@
 // DATA
 // ============================================================
 const CHARACTERS = [
-  {
-    id: 'genius', name: 'The Genius 🧠', emoji: '🧠', label: 'Intelligent / Logical',
-    desc: 'You solve problems before others even understand them. Logic is your superpower!',
-    color: '#A78BFA', games: ['sudoku', 'chess']
-  },
-  {
-    id: 'funny', name: 'The Comedian 😂', emoji: '😂', label: 'Funny / Humorous',
-    desc: 'Life is a stage and you\'re always the star! Your jokes make everyone laugh.',
-    color: '#FF6B9D', games: ['jokes', 'emoji_puzzle']
-  },
-  {
-    id: 'shopaholic', name: 'The Shopaholic 🛍️', emoji: '🛍️', label: 'Loves Shopping',
-    desc: 'Retail therapy is real therapy! You know every sale before it starts.',
-    color: '#F87171', games: ['shopping_dash', 'fashion_match']
-  },
-  {
-    id: 'adventurer', name: 'The Adventurer 🗺️', emoji: '🗺️', label: 'Bold & Adventurous',
-    desc: 'You jump first, look later. Every day is a new expedition!',
-    color: '#34D399', games: ['hangman', 'pattern']
-  },
-  {
-    id: 'bookworm', name: 'The Bookworm 📚', emoji: '📚', label: 'Love Reading',
-    desc: 'You\'ve read more books than most people know exist. Words are your universe.',
-    color: '#60A5FA', games: ['word_scramble', 'riddle']
-  },
-  {
-    id: 'artistic', name: 'The Artist 🎨', emoji: '🎨', label: 'Creative & Artistic',
-    desc: 'You see beauty in everything. Colors, shapes, and patterns speak to your soul.',
-    color: '#FBBF24', games: ['memory', 'pattern']
-  },
-  {
-    id: 'athlete', name: 'The Athlete 🏆', emoji: '🏆', label: 'Sporty & Competitive',
-    desc: 'Second place doesn\'t exist in your dictionary. You play to WIN!',
-    color: '#F87171', games: ['typing', 'pattern']
-  },
-  {
-    id: 'foodie', name: 'The Foodie 🍕', emoji: '🍕', label: 'Loves Food',
-    desc: 'You eat first, Instagram later. Every meal is a world tour!',
-    color: '#FBBF24', games: ['fruit_cutting', 'food_quiz']
-  },
-  {
-    id: 'dreamer', name: 'The Dreamer ✨', emoji: '✨', label: 'Imaginative / Dreamer',
-    desc: 'Reality is overrated. Your imagination builds universes while others sleep.',
-    color: '#A78BFA', games: ['riddle', 'hangman']
-  },
-  {
-    id: 'techie', name: 'The Techie 💻', emoji: '💻', label: 'Tech Lover / Geek',
-    desc: 'You\'ve already automated everything. Dark mode is a personality trait.',
-    color: '#60A5FA', games: ['sudoku', 'typing']
-  }
+  { id:'genius', name:'The Genius 🧠', emoji:'🧠', label:'Intelligent / Logical', desc:'You solve problems before others even understand them. Logic is your superpower!', color:'#A78BFA', games:['sudoku','chess'] },
+  { id:'funny', name:'The Comedian 😂', emoji:'😂', label:'Funny / Humorous', desc:"Life is a stage and you're always the star! Your jokes make everyone laugh.", color:'#FF6B9D', games:['jokes','emoji_puzzle'] },
+  { id:'shopaholic', name:'The Shopaholic 🛍️', emoji:'🛍️', label:'Loves Shopping', desc:'Retail therapy is real therapy! You know every sale before it starts.', color:'#F87171', games:['shopping_dash','fashion_match'] },
+  { id:'adventurer', name:'The Adventurer 🗺️', emoji:'🗺️', label:'Bold & Adventurous', desc:'You jump first, look later. Every day is a new expedition!', color:'#34D399', games:['hangman','pattern'] },
+  { id:'bookworm', name:'The Bookworm 📚', emoji:'📚', label:'Love Reading', desc:"You've read more books than most people know exist. Words are your universe.", color:'#60A5FA', games:['word_scramble','riddle'] },
+  { id:'artistic', name:'The Artist 🎨', emoji:'🎨', label:'Creative & Artistic', desc:'You see beauty in everything. Colors, shapes, and patterns speak to your soul.', color:'#FBBF24', games:['memory','pattern'] },
+  { id:'athlete', name:'The Athlete 🏆', emoji:'🏆', label:'Sporty & Competitive', desc:"Second place doesn't exist in your dictionary. You play to WIN!", color:'#F87171', games:['typing','pattern'] },
+  { id:'foodie', name:'The Foodie 🍕', emoji:'🍕', label:'Loves Food', desc:'You eat first, Instagram later. Every meal is a world tour!', color:'#FBBF24', games:['fruit_cutting','food_quiz'] },
+  { id:'dreamer', name:'The Dreamer ✨', emoji:'✨', label:'Imaginative / Dreamer', desc:'Reality is overrated. Your imagination builds universes while others sleep.', color:'#A78BFA', games:['riddle','hangman'] },
+  { id:'techie', name:'The Techie 💻', emoji:'💻', label:'Tech Lover / Geek', desc:"You've already automated everything. Dark mode is a personality trait.", color:'#60A5FA', games:['sudoku','typing'] }
 ];
 
 const GAMES = {
   sudoku:        { title:'Sudoku Master',     emoji:'🔢', color:'#A78BFA', desc:'Fill the grid — every row, column & 3×3 box must have 1-9.', init:initSudoku },
-  chess:         { title:'Mini Chess',        emoji:'♟️', color:'#FBBF24', desc:'Strategic chess puzzles — find the best move!', init:initChess },
+  chess:         { title:'Mini Chess',        emoji:'♟️', color:'#FBBF24', desc:'Play chess — click a piece then click where to move!', init:initChess },
   jokes:         { title:'Joke Battle',       emoji:'😂', color:'#FF6B9D', desc:'Guess the punchline or just laugh out loud!', init:initJokes },
   emoji_puzzle:  { title:'Emoji Quiz',        emoji:'🤔', color:'#FBBF24', desc:'Decode the emoji sequence — what movie/phrase is it?', init:initEmojiPuzzle },
   memory:        { title:'Memory Match',      emoji:'🧩', color:'#34D399', desc:'Flip and match all the pairs to win!', init:initMemory },
@@ -744,9 +736,8 @@ const GAMES = {
   hangman:       { title:'Hangman',           emoji:'🕹️', color:'#A78BFA', desc:'Guess the word letter by letter before time runs out!', init:initHangman },
   pattern:       { title:'Pattern Simon',     emoji:'🎯', color:'#FF6B9D', desc:'Watch the pattern then repeat it — how far can you go?', init:initPattern },
   riddle:        { title:'Riddle Master',     emoji:'🔮', color:'#60A5FA', desc:'Think carefully — can you crack these tricky riddles?', init:initRiddle },
-  typing:        { title:'Speed Typing',      emoji:'⌨️', color:'#34D399', desc:'Type as fast as you can — beat your high score!', init:initTyping },
-  // NEW GAMES
-  fruit_cutting: { title:'Fruit Slicer',      emoji:'🍉', color:'#F87171', desc:'Slice falling fruits before they drop — don\'t miss! 🍓🍊🍋', init:initFruitCutting },
+  typing:        { title:'Speed Typing',      emoji:'⌨️', color:'#34D399', desc:'Type as fast as you can — NO copy-paste allowed! ⌨️', init:initTyping },
+  fruit_cutting: { title:'Fruit Slicer',      emoji:'🍉', color:'#F87171', desc:"Slice falling fruits before they drop — don't miss! 🍓🍊🍋", init:initFruitCutting },
   food_quiz:     { title:'Food Guru Quiz',    emoji:'🍜', color:'#FBBF24', desc:'How well do you know world cuisines & food facts?', init:initFoodQuiz },
   shopping_dash: { title:'Shopping Dash',     emoji:'🛒', color:'#FF6B9D', desc:'Buy all the items on your list within budget!', init:initShoppingDash },
   fashion_match: { title:'Fashion Match',     emoji:'👗', color:'#A78BFA', desc:'Match the perfect outfit pieces together!', init:initFashionMatch }
@@ -840,7 +831,6 @@ function showReveal() {
   document.getElementById('reveal-emoji').textContent = currentChar.emoji;
   document.getElementById('reveal-char-name').textContent = `${playerName} is a ${currentChar.name}`;
   document.getElementById('reveal-desc').textContent = currentChar.desc;
-
   const row = document.getElementById('game-cards-row');
   row.innerHTML = '';
   currentChar.games.forEach(gid => {
@@ -910,18 +900,16 @@ function toggleMusic() {
   if (musicPlaying) { stopMusic(); musicBtn.textContent = '🔇'; }
   else { playMusic(); musicBtn.textContent = '🎵'; }
 }
-
 function playMusic() {
   try {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    const notes = [261.63, 293.66, 329.63, 349.23, 392, 440, 493.88, 523.25];
-    const progression = [0, 3, 4, 2];
+    const notes = [261.63,293.66,329.63,349.23,392,440,493.88,523.25];
+    const progression = [0,3,4,2];
     let step = 0;
     const master = audioCtx.createGain();
     master.gain.value = 0.06;
     master.connect(audioCtx.destination);
     musicNodes.push(master);
-
     const playNote = () => {
       if (!musicPlaying) return;
       const osc = audioCtx.createOscillator();
@@ -940,7 +928,6 @@ function playMusic() {
     playNote();
   } catch(e) {}
 }
-
 function stopMusic() {
   musicPlaying = false;
   musicNodes.forEach(n => { try { n.disconnect(); } catch(e){} });
@@ -964,7 +951,6 @@ function initSudoku() {
   ];
   const board = base.map(r => [...r]);
   let selected = null, errors = 0;
-
   const area = document.getElementById('game-area');
   area.innerHTML = `
     <p style="text-align:center;color:#9CA3AF;margin-bottom:0.5rem">Fill in the missing numbers (1-9)</p>
@@ -972,7 +958,6 @@ function initSudoku() {
     <div class="num-pad" id="np"></div>
     <div style="text-align:center;margin-top:1rem"><span id="err-count" style="color:#F87171;font-weight:700">Errors: 0</span></div>
   `;
-
   const grid = document.getElementById('sg');
   const cells = [];
   for (let r = 0; r < 9; r++) {
@@ -985,13 +970,12 @@ function initSudoku() {
       cell.dataset.r = r; cell.dataset.c = c;
       if (!base[r][c]) cell.onclick = () => {
         cells.flat().forEach(x => x.classList.remove('selected'));
-        cell.classList.add('selected'); selected = {r, c};
+        cell.classList.add('selected'); selected = {r,c};
       };
       cells.push(cell);
       grid.appendChild(cell);
     }
   }
-
   const np = document.getElementById('np');
   for (let n = 1; n <= 9; n++) {
     const btn = document.createElement('button');
@@ -1005,7 +989,7 @@ function initSudoku() {
         board[r][c] = n; cell.textContent = n; cell.style.color = '#34D399';
         cell.classList.remove('error','selected'); selected = null;
         if (board.every((row,ri) => row.every((v,ci) => v === solution[ri][ci])))
-          setTimeout(() => showWin('You solved the Sudoku! 🧠', '🧠', 'Sudoku Solved!'), 300);
+          setTimeout(() => showWin('You solved the Sudoku! 🧠','🧠','Sudoku Solved!'), 300);
       } else {
         errors++;
         cell.textContent = n; cell.classList.add('error');
@@ -1018,74 +1002,235 @@ function initSudoku() {
 }
 
 // ============================================================
-// GAME 2: CHESS
+// GAME 2: CHESS — FULLY FIXED WITH LEGAL MOVES
 // ============================================================
 function initChess() {
-  const puzzles = [
-    {
-      name: 'Checkmate in 1 — White to move',
-      fen: [
-        ['♜','♞','♝','♛','♚','♝','','♜'],['♟','♟','♟','♟','','♟','♟','♟'],
-        ['','','','','♟','','',''],['','','','','','','',''],
-        ['','','♗','♟','','','',''],['','','','','','♘','',''],
-        ['♙','♙','♙','♙','♙','♙','♙','♙'],['♖','♘','♗','♕','♔','','','♖']
-      ],
-      hint: 'The queen can deliver checkmate!', solution: {from:[7,3],to:[3,7]}
-    },
-    {
-      name: 'Fork! — Find the Knight move',
-      fen: [
-        ['♜','','♝','♛','♚','♝','♞','♜'],['♟','♟','♟','♟','','♟','♟','♟'],
-        ['','','♞','','♟','','',''],['','','','','','','',''],
-        ['','','','♙','','','',''],['','','♘','','','','',''],
-        ['♙','♙','♙','','♙','♙','♙','♙'],['♖','','♗','♕','♔','♗','','♖']
-      ],
-      hint: 'The knight can fork king and rook!', solution: {from:[5,2],to:[3,3]}
-    }
+  // Full chess game with proper piece movement
+  const PIECES = {
+    'wK':'♔','wQ':'♕','wR':'♖','wB':'♗','wN':'♘','wP':'♙',
+    'bK':'♚','bQ':'♛','bR':'♜','bB':'♝','bN':'♞','bP':'♟'
+  };
+
+  // Initial board: [piece, color] or null
+  // Rows: 0=top(black), 7=bottom(white)
+  let board = [
+    ['bR','bN','bB','bQ','bK','bB','bN','bR'],
+    ['bP','bP','bP','bP','bP','bP','bP','bP'],
+    [null,null,null,null,null,null,null,null],
+    [null,null,null,null,null,null,null,null],
+    [null,null,null,null,null,null,null,null],
+    [null,null,null,null,null,null,null,null],
+    ['wP','wP','wP','wP','wP','wP','wP','wP'],
+    ['wR','wN','wB','wQ','wK','wB','wN','wR']
   ];
 
-  let puzzleIdx = 0, selectedCell = null, score = 0;
+  let selectedPos = null;
+  let legalMoves = [];
+  let currentTurn = 'w'; // white goes first
+  let status = '';
+  let moveCount = 0;
+
   const area = document.getElementById('game-area');
-  const renderPuzzle = () => {
-    const p = puzzles[puzzleIdx % puzzles.length];
+
+  function getColor(piece) { return piece ? piece[0] : null; }
+  function getPieceType(piece) { return piece ? piece[1] : null; }
+
+  function isInBounds(r, c) { return r >= 0 && r < 8 && c >= 0 && c < 8; }
+
+  function getRawMoves(r, c, brd) {
+    const piece = brd[r][c];
+    if (!piece) return [];
+    const color = getColor(piece);
+    const type = getPieceType(piece);
+    const opp = color === 'w' ? 'b' : 'w';
+    const moves = [];
+
+    const addIfValid = (nr, nc) => {
+      if (!isInBounds(nr, nc)) return false;
+      if (getColor(brd[nr][nc]) === color) return false;
+      moves.push([nr, nc]);
+      return !brd[nr][nc]; // return true if empty (can continue sliding)
+    };
+
+    const slide = (dr, dc) => {
+      let nr = r + dr, nc = c + dc;
+      while (isInBounds(nr, nc)) {
+        if (getColor(brd[nr][nc]) === color) break;
+        moves.push([nr, nc]);
+        if (brd[nr][nc]) break; // blocked by opponent
+        nr += dr; nc += dc;
+      }
+    };
+
+    if (type === 'P') {
+      const dir = color === 'w' ? -1 : 1;
+      const startRow = color === 'w' ? 6 : 1;
+      // Forward
+      if (isInBounds(r+dir, c) && !brd[r+dir][c]) {
+        moves.push([r+dir, c]);
+        // Double from start
+        if (r === startRow && !brd[r+dir*2][c]) moves.push([r+dir*2, c]);
+      }
+      // Captures
+      [-1,1].forEach(dc => {
+        if (isInBounds(r+dir, c+dc) && getColor(brd[r+dir][c+dc]) === opp)
+          moves.push([r+dir, c+dc]);
+      });
+    } else if (type === 'N') {
+      [[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]].forEach(([dr,dc]) => addIfValid(r+dr, c+dc));
+    } else if (type === 'B') {
+      [[-1,-1],[-1,1],[1,-1],[1,1]].forEach(([dr,dc]) => slide(dr,dc));
+    } else if (type === 'R') {
+      [[-1,0],[1,0],[0,-1],[0,1]].forEach(([dr,dc]) => slide(dr,dc));
+    } else if (type === 'Q') {
+      [[-1,-1],[-1,1],[1,-1],[1,1],[-1,0],[1,0],[0,-1],[0,1]].forEach(([dr,dc]) => slide(dr,dc));
+    } else if (type === 'K') {
+      [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]].forEach(([dr,dc]) => addIfValid(r+dr,c+dc));
+    }
+    return moves;
+  }
+
+  function findKing(color, brd) {
+    for (let r = 0; r < 8; r++)
+      for (let c = 0; c < 8; c++)
+        if (brd[r][c] === color+'K') return [r,c];
+    return null;
+  }
+
+  function isInCheck(color, brd) {
+    const king = findKing(color, brd);
+    if (!king) return false;
+    const opp = color === 'w' ? 'b' : 'w';
+    for (let r = 0; r < 8; r++)
+      for (let c = 0; c < 8; c++)
+        if (getColor(brd[r][c]) === opp) {
+          const moves = getRawMoves(r, c, brd);
+          if (moves.some(([mr,mc]) => mr === king[0] && mc === king[1])) return true;
+        }
+    return false;
+  }
+
+  function getLegalMoves(r, c, brd) {
+    const raw = getRawMoves(r, c, brd);
+    const color = getColor(brd[r][c]);
+    return raw.filter(([nr, nc]) => {
+      const copy = brd.map(row => [...row]);
+      copy[nr][nc] = copy[r][c];
+      copy[r][c] = null;
+      return !isInCheck(color, copy);
+    });
+  }
+
+  function applyMove(fromR, fromC, toR, toC) {
+    const copy = board.map(row => [...row]);
+    copy[toR][toC] = copy[fromR][fromC];
+    copy[fromR][fromC] = null;
+    // Pawn promotion
+    if (copy[toR][toC] === 'wP' && toR === 0) copy[toR][toC] = 'wQ';
+    if (copy[toR][toC] === 'bP' && toR === 7) copy[toR][toC] = 'bQ';
+    return copy;
+  }
+
+  function hasAnyLegalMove(color, brd) {
+    for (let r = 0; r < 8; r++)
+      for (let c = 0; c < 8; c++)
+        if (getColor(brd[r][c]) === color)
+          if (getLegalMoves(r, c, brd).length > 0) return true;
+    return false;
+  }
+
+  function render() {
+    const inCheck = isInCheck(currentTurn, board);
+    const noMoves = !hasAnyLegalMove(currentTurn, board);
+    let statusText = '';
+    if (inCheck && noMoves) statusText = `♟️ CHECKMATE! ${currentTurn === 'w' ? '⚫ Black' : '⚪ White'} wins!`;
+    else if (!inCheck && noMoves) statusText = '🤝 Stalemate — Draw!';
+    else if (inCheck) statusText = `⚠️ ${currentTurn === 'w' ? '⚪ White' : '⚫ Black'} is in CHECK!`;
+    else statusText = `${currentTurn === 'w' ? '⚪ White' : '⚫ Black'} to move`;
+
     area.innerHTML = `
-      <p style="text-align:center;color:#FBBF24;font-weight:700;margin-bottom:0.5rem">${p.name}</p>
-      <p style="text-align:center;color:#9CA3AF;font-size:0.85rem;margin-bottom:0.5rem">💡 ${p.hint}</p>
+      <div style="text-align:center;margin-bottom:0.5rem">
+        <span style="background:rgba(255,255,255,0.08);padding:0.4rem 1rem;border-radius:20px;font-weight:700;color:${inCheck?'#F87171':'#FBBF24'}">${statusText}</span>
+      </div>
+      <div style="text-align:center;color:#9CA3AF;font-size:0.8rem;margin-bottom:0.25rem">Moves: ${moveCount} | Click piece → Click destination</div>
       <div class="chess-board" id="cb"></div>
-      <p style="text-align:center;margin-top:1rem;color:#9CA3AF">Score: <span style="color:#FBBF24;font-weight:700">${score}</span></p>
-      <p id="chess-msg" style="text-align:center;font-weight:700;margin-top:0.5rem;min-height:1.5rem"></p>
+      <div style="display:flex;gap:0.75rem;justify-content:center;margin-top:1rem;flex-wrap:wrap">
+        <button class="btn btn-outline" onclick="initChess()" style="padding:0.6rem 1.5rem;font-size:0.9rem">🔄 New Game</button>
+      </div>
     `;
+
     const cb = document.getElementById('cb');
     for (let r = 0; r < 8; r++) {
       for (let c = 0; c < 8; c++) {
         const cell = document.createElement('div');
-        cell.className = 'chess-cell ' + ((r+c)%2===0?'light':'dark');
-        cell.textContent = p.fen[r][c] || '';
-        cell.dataset.r = r; cell.dataset.c = c;
-        cell.onclick = () => {
-          const allCells = cb.querySelectorAll('.chess-cell');
-          if (!selectedCell) {
-            if (!cell.textContent) return;
-            allCells.forEach(x => x.classList.remove('selected'));
-            cell.classList.add('selected'); selectedCell = {r,c};
-          } else {
-            const sol = p.solution;
-            if (selectedCell.r===sol.from[0]&&selectedCell.c===sol.from[1]&&r===sol.to[0]&&c===sol.to[1]) {
-              score++;
-              document.getElementById('chess-msg').innerHTML = '<span style="color:#34D399">✅ Brilliant move!</span>';
-              setTimeout(() => { puzzleIdx++; if(puzzleIdx>=puzzles.length) showWin('Chess genius!','♟️','Chess Champion!'); else renderPuzzle(); }, 1200);
-            } else {
-              document.getElementById('chess-msg').innerHTML = '<span style="color:#F87171">❌ Not quite — try again!</span>';
-              allCells.forEach(x => x.classList.remove('selected'));
-            }
-            selectedCell = null;
-          }
-        };
+        const isLight = (r+c) % 2 === 0;
+        cell.className = 'chess-cell ' + (isLight ? 'light' : 'dark');
+
+        const isSelected = selectedPos && selectedPos[0] === r && selectedPos[1] === c;
+        const isLegal = legalMoves.some(([lr,lc]) => lr === r && lc === c);
+        const hasPiece = !!board[r][c];
+
+        if (isSelected) cell.classList.add('selected');
+        if (isLegal) {
+          cell.classList.add('possible');
+          if (hasPiece) cell.classList.add('has-piece');
+        }
+
+        if (board[r][c]) {
+          cell.textContent = PIECES[board[r][c]] || board[r][c];
+          // Color styling
+          if (getColor(board[r][c]) === 'w') cell.style.color = '#fff';
+          else cell.style.color = '#888';
+          if (isSelected) cell.style.color = '#FBBF24';
+        }
+
+        cell.onclick = () => handleCellClick(r, c);
         cb.appendChild(cell);
       }
     }
-  };
-  renderPuzzle();
+
+    // Check for game over
+    if (inCheck && noMoves) {
+      setTimeout(() => {
+        const winner = currentTurn === 'w' ? 'Black' : 'White';
+        showWin(`${winner} wins by checkmate! Incredible game! ♟️`, '♟️', 'Checkmate!');
+      }, 800);
+    } else if (!inCheck && noMoves) {
+      setTimeout(() => showWin('Stalemate — it\'s a draw! Well played! 🤝', '🤝', 'Stalemate!'), 800);
+    }
+  }
+
+  function handleCellClick(r, c) {
+    const piece = board[r][c];
+    const pieceColor = getColor(piece);
+
+    // If a piece is selected and we click a legal move destination
+    if (selectedPos && legalMoves.some(([lr,lc]) => lr === r && lc === c)) {
+      // Execute the move
+      board = applyMove(selectedPos[0], selectedPos[1], r, c);
+      moveCount++;
+      selectedPos = null;
+      legalMoves = [];
+      currentTurn = currentTurn === 'w' ? 'b' : 'w';
+      render();
+      return;
+    }
+
+    // Click on own piece — select it
+    if (piece && pieceColor === currentTurn) {
+      selectedPos = [r, c];
+      legalMoves = getLegalMoves(r, c, board);
+      render();
+      return;
+    }
+
+    // Click on empty or opponent without selection — deselect
+    selectedPos = null;
+    legalMoves = [];
+    render();
+  }
+
+  render();
 }
 
 // ============================================================
@@ -1105,7 +1250,6 @@ function initJokes() {
     {setup:"Why did the scarecrow win an award?", punch:"Because he was outstanding in his field! 🌾"}
   ];
   let idx = 0, score = 0;
-
   const render = () => {
     const j = jokes[idx];
     document.getElementById('game-area').innerHTML = `
@@ -1146,7 +1290,6 @@ function initEmojiPuzzle() {
     {emoji:'🦸‍♀️💪🌟', answer:'WONDERWOMAN', options:['WONDERWOMAN','SUPERGIRL','CAPTAIN MARVEL','BATGIRL']}
   ];
   let idx = 0, score = 0;
-
   const render = () => {
     const p = puzzles[idx];
     const shuffled = [...p.options].sort(() => Math.random()-0.5);
@@ -1188,7 +1331,6 @@ function initMemory() {
   const emojis = ['🍕','⭐','🦋','🌈','🎯','🚀','💎','🌺'];
   const cards = [...emojis,...emojis].sort(() => Math.random()-0.5);
   let flipped=[], matched=0, moves=0, locked=false;
-
   const area = document.getElementById('game-area');
   area.innerHTML = `
     <p style="text-align:center;color:#9CA3AF;margin-bottom:0.5rem">Match all pairs! Moves: <span id="moves-cnt" style="color:#34D399;font-weight:700">0</span></p>
@@ -1235,7 +1377,6 @@ function initWordScramble() {
   ];
   let idx = 0, score = 0;
   const scramble = w => w.split('').sort(() => Math.random()-0.5).join('');
-
   const render = () => {
     const {word, hint} = words[idx];
     let sc = scramble(word);
@@ -1284,7 +1425,6 @@ function initHangman() {
   ];
   let {word, hint} = wordList[~~(Math.random()*wordList.length)];
   let guessed = new Set(), wrong = 0, maxWrong = 6;
-
   const render = () => {
     const lives = maxWrong - wrong;
     const hangEmojis = ['😊','🙂','😐','😟','😰','😱','💀'];
@@ -1320,78 +1460,146 @@ function initHangman() {
 }
 
 // ============================================================
-// GAME 8: PATTERN SIMON
+// GAME 8: PATTERN SIMON — HARDER VERSION
 // ============================================================
 function initPattern() {
-  const emojis = ['🔴','🔵','🟡','🟢','🟣','🟠','⚪','🟤'];
+  const COLORS = [
+    { bg: '#FF6B9D', glow: 'rgba(255,107,157,0.8)', label: '🔴' },
+    { bg: '#60A5FA', glow: 'rgba(96,165,250,0.8)', label: '🔵' },
+    { bg: '#FBBF24', glow: 'rgba(251,191,36,0.8)', label: '🟡' },
+    { bg: '#34D399', glow: 'rgba(52,211,153,0.8)', label: '🟢' },
+    { bg: '#A78BFA', glow: 'rgba(167,139,250,0.8)', label: '🟣' },
+    { bg: '#F87171', glow: 'rgba(248,113,113,0.8)', label: '🟠' },
+    { bg: '#E5E7EB', glow: 'rgba(229,231,235,0.8)', label: '⚪' },
+    { bg: '#92400E', glow: 'rgba(146,64,14,0.8)', label: '🟤' },
+  ];
+
   let sequence = [], playerSeq = [], level = 1, playerTurn = false, score = 0;
+  let flashSpeed = 600; // starts slower
+  let locked = false;
 
   const area = document.getElementById('game-area');
   area.innerHTML = `
-    <div style="text-align:center">
-      <p style="color:#9CA3AF;margin-bottom:0.5rem">Watch the pattern, then repeat it!</p>
-      <p>Level: <span id="pat-lvl" style="color:#FF6B9D;font-weight:700">1</span> • Score: <span id="pat-sc" style="color:#FF6B9D;font-weight:700">0</span></p>
+    <div style="text-align:center;max-width:460px;margin:0 auto">
+      <div class="speed-indicator" id="speed-ind">
+        <span style="color:#9CA3AF;font-size:0.85rem">Speed:</span>
+        <span class="speed-badge" id="speed-badge" style="background:rgba(52,211,153,0.2);color:#34D399">EASY</span>
+      </div>
+      <p style="color:#9CA3AF;margin-bottom:0.25rem;font-size:0.9rem">Watch the pattern carefully — repeat it exactly!</p>
+      <div style="display:flex;gap:1rem;justify-content:center;margin-bottom:0.5rem">
+        <span>Level: <span id="pat-lvl" style="color:#FF6B9D;font-weight:800;font-size:1.2rem">1</span></span>
+        <span>Score: <span id="pat-sc" style="color:#FF6B9D;font-weight:800;font-size:1.2rem">0</span></span>
+        <span>Best: <span id="pat-best" style="color:#FBBF24;font-weight:800;font-size:1.2rem">0</span></span>
+      </div>
       <div class="pattern-grid" id="pg"></div>
-      <div id="pat-msg" style="font-weight:700;min-height:1.5rem;margin-top:0.5rem;color:#9CA3AF">Watch carefully…</div>
-      <button class="btn btn-primary" id="pat-start" style="margin-top:1rem" onclick="startPattern()">▶ Start!</button>
+      <div id="pat-msg" style="font-weight:700;min-height:1.5rem;margin-top:0.5rem;color:#9CA3AF;font-size:0.9rem">Press Start to play!</div>
+      <button class="btn btn-primary" id="pat-start" style="margin-top:1rem" onclick="window._startPattern()">▶ Start!</button>
     </div>
   `;
 
   const cells = [];
   const pg = document.getElementById('pg');
-  emojis.forEach((em, i) => {
+  COLORS.forEach((col, i) => {
     const c = document.createElement('div');
-    c.className = 'pattern-cell'; c.textContent = em;
+    c.className = 'pattern-cell';
+    c.style.setProperty('--gc', col.bg);
+    c.dataset.idx = i;
     c.onclick = () => {
-      if (!playerTurn) return;
-      playerSeq.push(i);
-      flashCell(c, '#A78BFA');
-      const pos = playerSeq.length - 1;
-      if (playerSeq[pos] !== sequence[pos]) {
-        document.getElementById('pat-msg').innerHTML = `<span style="color:#F87171">❌ Wrong! Game over at level ${level}</span>`;
-        playerTurn = false;
-        document.getElementById('pat-start').style.display = '';
-        document.getElementById('pat-start').textContent = '🔄 Play Again';
-        return;
-      }
-      if (playerSeq.length === sequence.length) {
-        score += level; level++;
-        document.getElementById('pat-sc').textContent = score;
-        document.getElementById('pat-lvl').textContent = level;
-        document.getElementById('pat-msg').textContent = '✅ Correct! Watch next…';
-        playerSeq = []; playerTurn = false;
-        if (level > 10) { showWin(`All 10 levels done! Score: ${score}`,'🎯','Pattern Pro!'); return; }
-        setTimeout(playSequence, 1000);
-      }
+      if (!playerTurn || locked) return;
+      locked = true;
+      flashCell(c, col.bg, col.glow, 250);
+      setTimeout(() => {
+        locked = false;
+        playerSeq.push(i);
+        const pos = playerSeq.length - 1;
+        if (playerSeq[pos] !== sequence[pos]) {
+          // Wrong!
+          playerTurn = false;
+          flashWrong(c);
+          document.getElementById('pat-msg').innerHTML = `<span style="color:#F87171">❌ Wrong at step ${pos+1}! Game over at level ${level}!</span>`;
+          document.getElementById('pat-start').style.display = '';
+          document.getElementById('pat-start').textContent = '🔄 Try Again';
+          updateBest();
+          return;
+        }
+        if (playerSeq.length === sequence.length) {
+          // Level complete!
+          score += level * 10;
+          level++;
+          updateSpeedBadge();
+          document.getElementById('pat-sc').textContent = score;
+          document.getElementById('pat-lvl').textContent = level;
+          document.getElementById('pat-msg').innerHTML = '<span style="color:#34D399">✅ Correct! Get ready…</span>';
+          playerSeq = []; playerTurn = false;
+          if (level > 20) { showWin(`Legendary! All 20 levels! Score: ${score}`,'🎯','Simon Legend!'); return; }
+          setTimeout(playSequence, level <= 5 ? 1200 : level <= 10 ? 900 : 700);
+        }
+      }, 260);
     };
     cells.push(c);
     pg.appendChild(c);
   });
 
-  function flashCell(c, color) {
-    c.style.background = color; c.style.boxShadow = `0 0 20px ${color}`;
-    setTimeout(() => { c.style.background=''; c.style.boxShadow=''; }, 400);
+  let bestScore = 0;
+  function updateBest() {
+    if (score > bestScore) bestScore = score;
+    document.getElementById('pat-best').textContent = bestScore;
+  }
+
+  function updateSpeedBadge() {
+    // Speed increases per level
+    if (level <= 3) { flashSpeed = 600; setBadge('EASY','#34D399'); }
+    else if (level <= 6) { flashSpeed = 500; setBadge('NORMAL','#FBBF24'); }
+    else if (level <= 10) { flashSpeed = 380; setBadge('FAST','#FF6B9D'); }
+    else if (level <= 15) { flashSpeed = 280; setBadge('BLAZING','#F87171'); }
+    else { flashSpeed = 200; setBadge('INSANE 🔥','#A78BFA'); }
+  }
+  function setBadge(text, color) {
+    const b = document.getElementById('speed-badge');
+    if(b) { b.textContent = text; b.style.color = color; b.style.background = color+'22'; }
+  }
+
+  function flashCell(c, bg, glow, duration) {
+    c.style.background = bg;
+    c.style.boxShadow = `0 0 30px ${glow}`;
+    c.style.transform = 'scale(1.12)';
+    setTimeout(() => { c.style.background=''; c.style.boxShadow=''; c.style.transform=''; }, duration || 300);
+  }
+
+  function flashWrong(c) {
+    c.classList.add('wrong-flash');
+    setTimeout(() => c.classList.remove('wrong-flash'), 500);
   }
 
   function playSequence() {
-    document.getElementById('pat-msg').textContent = 'Watch the pattern…';
+    document.getElementById('pat-msg').textContent = `👀 Watch — ${sequence.length + 1} step${sequence.length > 0 ? 's' : ''}…`;
     playerTurn = false;
-    sequence.push(~~(Math.random()*8));
+    // Add more than 1 step at higher levels for extra difficulty
+    const stepsToAdd = level <= 5 ? 1 : level <= 10 ? 1 : level <= 15 ? 2 : 2;
+    for (let s = 0; s < stepsToAdd; s++) sequence.push(~~(Math.random()*8));
+
     let i = 0;
-    const iv = setInterval(() => {
-      flashCell(cells[sequence[i]], '#FF6B9D'); i++;
+    const interval = setInterval(() => {
+      const idx = sequence[i];
+      const col = COLORS[idx];
+      flashCell(cells[idx], col.bg, col.glow, flashSpeed * 0.6);
+      i++;
       if (i >= sequence.length) {
-        clearInterval(iv);
-        setTimeout(() => { playerTurn = true; document.getElementById('pat-msg').textContent = 'Your turn!'; }, 400);
+        clearInterval(interval);
+        setTimeout(() => {
+          playerTurn = true;
+          document.getElementById('pat-msg').innerHTML = `<span style="color:#FBBF24">🎯 Your turn! Repeat ${sequence.length} steps</span>`;
+        }, flashSpeed * 0.8);
       }
-    }, 700);
+    }, flashSpeed);
   }
 
-  window.startPattern = () => {
+  window._startPattern = () => {
     document.getElementById('pat-start').style.display = 'none';
-    sequence = []; playerSeq = []; level = 1; score = 0;
+    sequence = []; playerSeq = []; level = 1; score = 0; flashSpeed = 600;
     document.getElementById('pat-lvl').textContent = 1;
     document.getElementById('pat-sc').textContent = 0;
+    setBadge('EASY','#34D399');
     playSequence();
   };
 }
@@ -1409,7 +1617,6 @@ function initRiddle() {
     {q:"What gets wetter the more it dries?", a:"TOWEL", hints:["Think about the bathroom…","You use it after a shower!"]}
   ];
   let idx = 0, score = 0, hintIdx = 0;
-
   const render = () => {
     const r = riddles[idx];
     document.getElementById('game-area').innerHTML = `
@@ -1447,7 +1654,7 @@ function initRiddle() {
 }
 
 // ============================================================
-// GAME 10: TYPING SPEED
+// GAME 10: TYPING SPEED — COPY PASTE BLOCKED
 // ============================================================
 function initTyping() {
   const sentences = [
@@ -1458,23 +1665,32 @@ function initTyping() {
     "Knowledge is the key that unlocks every door"
   ];
   let sIdx = 0, startTime = null, finished = false, bestWPM = 0;
+  let pasteAttempts = 0;
 
   const render = () => {
     const sentence = sentences[sIdx];
     document.getElementById('game-area').innerHTML = `
       <div class="typing-area">
+        <div style="background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.25);border-radius:10px;padding:0.4rem 0.8rem;text-align:center;margin-bottom:0.5rem;font-size:0.8rem;color:#34D399;font-weight:700;">
+          ⌨️ Type manually — copy/paste is blocked!
+        </div>
+        <div id="paste-warn" class="no-paste-warning">🚫 Copy-paste not allowed! Type it yourself!</div>
         <div class="typing-display" id="td"></div>
-        <input class="typing-input" id="ti" placeholder="Start typing here…" autocomplete="off" autocorrect="off" spellcheck="false">
+        <input class="typing-input" id="ti" placeholder="Start typing here… (no copy-paste!)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
         <div class="typing-stats">
           <div class="stat-box"><div class="stat-val" id="wpm-val">0</div><div class="stat-lbl">WPM</div></div>
           <div class="stat-box"><div class="stat-val" id="acc-val">100%</div><div class="stat-lbl">Accuracy</div></div>
           <div class="stat-box"><div class="stat-val" id="time-val">0s</div><div class="stat-lbl">Time</div></div>
+          <div class="stat-box"><div class="stat-val" id="paste-val" style="color:#F87171">0</div><div class="stat-lbl">Paste Tries</div></div>
         </div>
         <div id="ty-msg" style="text-align:center;font-weight:700;min-height:1.5rem;margin-top:0.5rem"></div>
       </div>
     `;
-    const td = document.getElementById('td'), ti = document.getElementById('ti');
+
+    const td = document.getElementById('td');
+    const ti = document.getElementById('ti');
     finished = false; startTime = null;
+
     const updateDisplay = (typed) => {
       td.innerHTML = sentence.split('').map((ch, i) => {
         if (i < typed.length) return `<span class="${typed[i]===ch?'correct-char':'wrong-char'}">${ch}</span>`;
@@ -1483,12 +1699,38 @@ function initTyping() {
       }).join('');
     };
     updateDisplay('');
+
+    // BLOCK ALL PASTE METHODS
+    ti.addEventListener('paste', (e) => {
+      e.preventDefault();
+      pasteAttempts++;
+      document.getElementById('paste-val').textContent = pasteAttempts;
+      const warn = document.getElementById('paste-warn');
+      warn.style.display = 'block';
+      warn.textContent = `🚫 Paste blocked! (${pasteAttempts} attempt${pasteAttempts>1?'s':''}) — Type it yourself!`;
+      setTimeout(() => { warn.style.display = 'none'; }, 2000);
+    });
+    ti.addEventListener('drop', (e) => { e.preventDefault(); });
+    ti.addEventListener('contextmenu', (e) => { e.preventDefault(); });
+    // Block keyboard shortcuts for paste
+    ti.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'v' || e.key === 'V')) {
+        e.preventDefault();
+        pasteAttempts++;
+        document.getElementById('paste-val').textContent = pasteAttempts;
+        const warn = document.getElementById('paste-warn');
+        warn.style.display = 'block';
+        warn.textContent = `🚫 Ctrl+V blocked! (${pasteAttempts} attempt${pasteAttempts>1?'s':''}) Type it!`;
+        setTimeout(() => { warn.style.display = 'none'; }, 2000);
+      }
+    });
+
     ti.addEventListener('input', () => {
       if (finished) return;
       const typed = ti.value;
       if (!startTime && typed.length > 0) startTime = Date.now();
       updateDisplay(typed);
-      const elapsed = (Date.now() - startTime) / 1000;
+      const elapsed = startTime ? (Date.now() - startTime) / 1000 : 0.001;
       const words = typed.trim().split(' ').length;
       const wpm = Math.round((words / elapsed) * 60) || 0;
       const correct = typed.split('').filter((c,i) => c === sentence[i]).length;
@@ -1500,8 +1742,11 @@ function initTyping() {
         finished = true;
         if (wpm > bestWPM) bestWPM = wpm;
         sIdx++;
-        if (sIdx >= sentences.length) showWin(`Best WPM: ${bestWPM}!`,'⌨️','Speed Demon!');
-        else { document.getElementById('ty-msg').innerHTML = `<span style="color:#34D399">✅ ${wpm} WPM — Next sentence…</span>`; setTimeout(render, 1200); }
+        if (sIdx >= sentences.length) showWin(`Best WPM: ${bestWPM}! Paste attempts: ${pasteAttempts}`,'⌨️','Speed Demon!');
+        else {
+          document.getElementById('ty-msg').innerHTML = `<span style="color:#34D399">✅ ${wpm} WPM — Next sentence…</span>`;
+          setTimeout(render, 1200);
+        }
       }
     });
   };
@@ -1509,7 +1754,7 @@ function initTyping() {
 }
 
 // ============================================================
-// ★ NEW GAME 11: FRUIT CUTTING (Canvas-based)
+// GAME 11: FRUIT CUTTING
 // ============================================================
 function initFruitCutting() {
   const area = document.getElementById('game-area');
@@ -1524,15 +1769,12 @@ function initFruitCutting() {
     </div>
     <p style="text-align:center;color:#9CA3AF;margin-top:0.75rem;font-size:0.85rem">✂️ Slice the fruits — miss 3 and it's game over!</p>
   `;
-
   const canvas = document.getElementById('fruitCanvas');
   const ctx = canvas.getContext('2d');
   const FRUITS = ['🍎','🍊','🍋','🍇','🍓','🍑','🥭','🍍','🍌','🍉','🥝','🫐'];
-  const BOMBS = ['💣'];
-
-  let fruits = [], score = 0, lives = 3, combo = 1, running = true;
-  let sliceTrail = [], lastSliceTime = 0;
-  let animFrame;
+  let fruits=[], score=0, lives=3, combo=1, running=true;
+  let sliceTrail=[], animFrame;
+  let particles=[];
 
   function spawnFruit() {
     const isBomb = Math.random() < 0.12;
@@ -1540,7 +1782,7 @@ function initFruitCutting() {
     const x = 60 + Math.random() * (canvas.width - 120);
     const vy = -(8 + Math.random() * 6);
     const vx = (Math.random() - 0.5) * 3;
-    fruits.push({ x, y: canvas.height + 30, vx, vy, emoji, isBomb, size: 38, sliced: false, slicedAt: 0, opacity: 1, rotation: Math.random()*360, rotSpeed: (Math.random()-0.5)*5 });
+    fruits.push({ x, y: canvas.height + 30, vx, vy, emoji, isBomb, size: 38, sliced: false, opacity: 1, rotation: Math.random()*360, rotSpeed: (Math.random()-0.5)*5 });
   }
 
   function updateScoreUI() {
@@ -1549,75 +1791,40 @@ function initFruitCutting() {
     document.getElementById('fc-combo').textContent = `x${combo}`;
   }
 
-  let particles = [];
   function spawnParticles(x, y, color) {
     for (let i = 0; i < 8; i++) {
-      particles.push({
-        x, y,
-        vx: (Math.random()-0.5)*8,
-        vy: (Math.random()-0.5)*8,
-        life: 1, color
-      });
+      particles.push({ x, y, vx: (Math.random()-0.5)*8, vy: (Math.random()-0.5)*8, life: 1, color });
     }
   }
 
   function gameLoop() {
     if (!running) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw trail
     if (sliceTrail.length > 1) {
-      ctx.beginPath();
-      ctx.moveTo(sliceTrail[0].x, sliceTrail[0].y);
+      ctx.beginPath(); ctx.moveTo(sliceTrail[0].x, sliceTrail[0].y);
       sliceTrail.forEach(p => ctx.lineTo(p.x, p.y));
-      ctx.strokeStyle = 'rgba(255,255,255,0.7)';
-      ctx.lineWidth = 3;
-      ctx.lineCap = 'round';
-      ctx.stroke();
+      ctx.strokeStyle = 'rgba(255,255,255,0.7)'; ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.stroke();
     }
-    // Fade trail
     sliceTrail = sliceTrail.filter((p,i) => i > sliceTrail.length - 12);
-
-    // Update particles
     particles = particles.filter(p => p.life > 0);
     particles.forEach(p => {
       p.x += p.vx; p.y += p.vy; p.vy += 0.3; p.life -= 0.05;
-      ctx.globalAlpha = p.life;
-      ctx.fillStyle = p.color;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, 5 * p.life, 0, Math.PI*2);
-      ctx.fill();
+      ctx.globalAlpha = p.life; ctx.fillStyle = p.color;
+      ctx.beginPath(); ctx.arc(p.x, p.y, 5 * p.life, 0, Math.PI*2); ctx.fill();
       ctx.globalAlpha = 1;
     });
-
-    // Update & draw fruits
     fruits = fruits.filter(f => {
-      if (f.sliced) {
-        f.opacity -= 0.06;
-        f.y -= 3;
-        return f.opacity > 0;
-      }
-      f.x += f.vx; f.y += f.vy; f.vy += 0.35;
-      f.rotation += f.rotSpeed;
+      if (f.sliced) { f.opacity -= 0.06; f.y -= 3; return f.opacity > 0; }
+      f.x += f.vx; f.y += f.vy; f.vy += 0.35; f.rotation += f.rotSpeed;
       if (f.y > canvas.height + 50) {
-        if (!f.isBomb && !f.sliced) {
-          lives--; combo = 1; updateScoreUI();
-          if (lives <= 0) { endGame(); return false; }
-        }
+        if (!f.isBomb && !f.sliced) { lives--; combo=1; updateScoreUI(); if(lives<=0){endGame();return false;} }
         return false;
       }
-      ctx.save();
-      ctx.globalAlpha = f.opacity;
-      ctx.translate(f.x, f.y);
-      ctx.rotate(f.rotation * Math.PI / 180);
-      ctx.font = `${f.size}px serif`;
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(f.emoji, 0, 0);
-      ctx.restore();
-      return true;
+      ctx.save(); ctx.globalAlpha = f.opacity;
+      ctx.translate(f.x, f.y); ctx.rotate(f.rotation * Math.PI / 180);
+      ctx.font = `${f.size}px serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(f.emoji, 0, 0); ctx.restore(); return true;
     });
-
     animFrame = requestAnimationFrame(gameLoop);
   }
 
@@ -1627,95 +1834,64 @@ function initFruitCutting() {
       const dist = Math.hypot(f.x - sx, f.y - sy);
       if (dist < f.size) {
         f.sliced = true;
-        if (f.isBomb) {
-          lives--; combo = 1;
-          spawnParticles(f.x, f.y, '#F87171');
-          updateScoreUI();
-          if (lives <= 0) endGame();
-        } else {
-          score += combo;
-          combo = Math.min(combo + 1, 8);
-          spawnParticles(f.x, f.y, ['#FF6B9D','#FBBF24','#34D399','#60A5FA'][~~(Math.random()*4)]);
-          updateScoreUI();
-        }
+        if (f.isBomb) { lives--; combo=1; spawnParticles(f.x,f.y,'#F87171'); updateScoreUI(); if(lives<=0) endGame(); }
+        else { score+=combo; combo=Math.min(combo+1,8); spawnParticles(f.x,f.y,['#FF6B9D','#FBBF24','#34D399','#60A5FA'][~~(Math.random()*4)]); updateScoreUI(); }
       }
     });
   }
 
-  // Mouse/touch input
   const wrap = document.getElementById('fruit-canvas-wrap');
   const getPos = (e, isTouch) => {
     const rect = canvas.getBoundingClientRect();
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
+    const scaleX = canvas.width / rect.width, scaleY = canvas.height / rect.height;
     const src = isTouch ? e.touches[0] : e;
     return { x: (src.clientX - rect.left) * scaleX, y: (src.clientY - rect.top) * scaleY };
   };
   let isSlicing = false;
-  canvas.addEventListener('mousedown', e => { isSlicing = true; sliceTrail = []; });
-  canvas.addEventListener('mouseup', () => { isSlicing = false; sliceTrail = []; });
-  canvas.addEventListener('mousemove', e => {
-    if (!isSlicing) return;
-    const pos = getPos(e, false);
-    sliceTrail.push(pos);
-    sliceFruitAt(pos.x, pos.y);
-  });
-  canvas.addEventListener('touchstart', e => { e.preventDefault(); isSlicing = true; sliceTrail = []; }, {passive:false});
-  canvas.addEventListener('touchend', () => { isSlicing = false; sliceTrail = []; });
-  canvas.addEventListener('touchmove', e => {
-    e.preventDefault();
-    if (!isSlicing) return;
-    const pos = getPos(e, true);
-    sliceTrail.push(pos);
-    sliceFruitAt(pos.x, pos.y);
-  }, {passive:false});
+  canvas.addEventListener('mousedown', () => { isSlicing=true; sliceTrail=[]; });
+  canvas.addEventListener('mouseup', () => { isSlicing=false; sliceTrail=[]; });
+  canvas.addEventListener('mousemove', e => { if(!isSlicing) return; const p=getPos(e,false); sliceTrail.push(p); sliceFruitAt(p.x,p.y); });
+  canvas.addEventListener('touchstart', e => { e.preventDefault(); isSlicing=true; sliceTrail=[]; },{passive:false});
+  canvas.addEventListener('touchend', () => { isSlicing=false; sliceTrail=[]; });
+  canvas.addEventListener('touchmove', e => { e.preventDefault(); if(!isSlicing) return; const p=getPos(e,true); sliceTrail.push(p); sliceFruitAt(p.x,p.y); },{passive:false});
 
   function endGame() {
-    running = false;
-    cancelAnimationFrame(animFrame);
-    clearInterval(spawnInterval);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = 'rgba(15,10,30,0.85)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.font = 'bold 40px Fredoka One, cursive';
-    ctx.fillStyle = '#FF6B9D';
-    ctx.textAlign = 'center';
-    ctx.fillText('Game Over!', canvas.width/2, canvas.height/2 - 30);
-    ctx.font = '28px Nunito, sans-serif';
-    ctx.fillStyle = '#FBBF24';
-    ctx.fillText(`Final Score: ${score}`, canvas.width/2, canvas.height/2 + 20);
-    setTimeout(() => showWin(`You sliced ${score} fruits! 🍓 Knife skills on point!`, '🍉', 'Fruit Ninja!'), 1000);
+    running=false; cancelAnimationFrame(animFrame); clearInterval(spawnInterval);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle='rgba(15,10,30,0.85)'; ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.font='bold 40px Fredoka One,cursive'; ctx.fillStyle='#FF6B9D'; ctx.textAlign='center';
+    ctx.fillText('Game Over!',canvas.width/2,canvas.height/2-30);
+    ctx.font='28px Nunito,sans-serif'; ctx.fillStyle='#FBBF24';
+    ctx.fillText(`Final Score: ${score}`,canvas.width/2,canvas.height/2+20);
+    setTimeout(() => showWin(`You sliced ${score} fruits! 🍓`,'🍉','Fruit Ninja!'), 1000);
   }
 
   let spawnInterval;
-  gameLoop();
-  spawnFruit();
+  gameLoop(); spawnFruit();
   spawnInterval = setInterval(() => { if(running) spawnFruit(); }, 1100);
   updateScoreUI();
 }
 
 // ============================================================
-// ★ NEW GAME 12: FOOD QUIZ
+// GAME 12: FOOD QUIZ
 // ============================================================
 function initFoodQuiz() {
   const questions = [
-    { q: '🍕 Which country did Pizza originate from?', options: ['Italy', 'USA', 'France', 'Greece'], answer: 'Italy', emoji: '🇮🇹' },
-    { q: '🍣 What is the main ingredient in traditional Sushi rice?', options: ['Salt', 'Vinegar', 'Sugar', 'Butter'], answer: 'Vinegar', emoji: '🍶' },
-    { q: '🌮 Tacos are a traditional food from which country?', options: ['Spain', 'Brazil', 'Mexico', 'Colombia'], answer: 'Mexico', emoji: '🇲🇽' },
-    { q: '🍜 Ramen noodles originally come from which country?', options: ['China', 'Japan', 'Korea', 'Vietnam'], answer: 'Japan', emoji: '🇯🇵' },
-    { q: '🧆 Falafel is made from which ingredient?', options: ['Lentils', 'Chickpeas', 'Potatoes', 'Rice'], answer: 'Chickpeas', emoji: '🟡' },
-    { q: '🍫 Which country produces the most chocolate?', options: ['Belgium', 'Switzerland', 'Ivory Coast', 'Ghana'], answer: 'Ivory Coast', emoji: '🍫' },
-    { q: '🍛 Biryani is most associated with which cuisine?', options: ['Thai', 'Indian', 'Egyptian', 'Turkish'], answer: 'Indian', emoji: '🇮🇳' },
-    { q: '🥐 Croissants are famously associated with which country?', options: ['France', 'Austria', 'Germany', 'Belgium'], answer: 'France', emoji: '🇫🇷' },
-    { q: '🍦 Which country invented ice cream?', options: ['USA', 'Italy', 'China', 'England'], answer: 'China', emoji: '🇨🇳' },
-    { q: '🥘 Paella is a signature dish from which country?', options: ['Portugal', 'Greece', 'Spain', 'Morocco'], answer: 'Spain', emoji: '🇪🇸' }
+    {q:'🍕 Which country did Pizza originate from?', options:['Italy','USA','France','Greece'], answer:'Italy', emoji:'🇮🇹'},
+    {q:'🍣 What is the main ingredient in traditional Sushi rice?', options:['Salt','Vinegar','Sugar','Butter'], answer:'Vinegar', emoji:'🍶'},
+    {q:'🌮 Tacos are a traditional food from which country?', options:['Spain','Brazil','Mexico','Colombia'], answer:'Mexico', emoji:'🇲🇽'},
+    {q:'🍜 Ramen noodles originally come from which country?', options:['China','Japan','Korea','Vietnam'], answer:'Japan', emoji:'🇯🇵'},
+    {q:'🧆 Falafel is made from which ingredient?', options:['Lentils','Chickpeas','Potatoes','Rice'], answer:'Chickpeas', emoji:'🟡'},
+    {q:'🍫 Which country produces the most chocolate?', options:["Belgium","Switzerland","Ivory Coast","Ghana"], answer:'Ivory Coast', emoji:'🍫'},
+    {q:'🍛 Biryani is most associated with which cuisine?', options:['Thai','Indian','Egyptian','Turkish'], answer:'Indian', emoji:'🇮🇳'},
+    {q:'🥐 Croissants are famously associated with which country?', options:['France','Austria','Germany','Belgium'], answer:'France', emoji:'🇫🇷'},
+    {q:'🍦 Which country invented ice cream?', options:['USA','Italy','China','England'], answer:'China', emoji:'🇨🇳'},
+    {q:'🥘 Paella is a signature dish from which country?', options:['Portugal','Greece','Spain','Morocco'], answer:'Spain', emoji:'🇪🇸'}
   ];
-
-  let idx = 0, score = 0, answered = false;
-
+  let idx=0, score=0, answered=false;
   const render = () => {
     const q = questions[idx];
-    const shuffled = [...q.options].sort(() => Math.random() - 0.5);
+    const shuffled = [...q.options].sort(() => Math.random()-0.5);
     document.getElementById('game-area').innerHTML = `
       <div class="food-quiz-card">
         <div style="font-size:2.5rem;margin-bottom:0.5rem;text-align:center">${q.emoji}</div>
@@ -1729,21 +1905,19 @@ function initFoodQuiz() {
     answered = false;
     shuffled.forEach(opt => {
       const btn = document.createElement('button');
-      btn.className = 'food-opt-btn';
-      btn.textContent = opt;
+      btn.className = 'food-opt-btn'; btn.textContent = opt;
       btn.onclick = () => {
-        if (answered) return;
-        answered = true;
-        opts.querySelectorAll('.food-opt-btn').forEach(b => { b.disabled = true; });
+        if (answered) return; answered = true;
+        opts.querySelectorAll('.food-opt-btn').forEach(b => b.disabled = true);
         if (opt === q.answer) {
           score++; btn.classList.add('correct');
-          document.getElementById('fq-msg').innerHTML = '<span style="color:#34D399">✅ Delicious answer! Correct! 🎉</span>';
+          document.getElementById('fq-msg').innerHTML = '<span style="color:#34D399">✅ Correct! 🎉</span>';
         } else {
           btn.classList.add('wrong');
-          opts.querySelectorAll('.food-opt-btn').forEach(b => { if(b.textContent === q.answer) b.classList.add('correct'); });
+          opts.querySelectorAll('.food-opt-btn').forEach(b => { if(b.textContent===q.answer) b.classList.add('correct'); });
           document.getElementById('fq-msg').innerHTML = `<span style="color:#F87171">❌ Wrong! Answer: ${q.answer}</span>`;
         }
-        setTimeout(() => { idx++; if(idx >= questions.length) showWin(`You scored ${score}/${questions.length}! 🍴 Food Guru!`, '🍕', 'Food Guru!'); else render(); }, 1200);
+        setTimeout(() => { idx++; if(idx>=questions.length) showWin(`You scored ${score}/${questions.length}! 🍴`,'🍕','Food Guru!'); else render(); }, 1200);
       };
       opts.appendChild(btn);
     });
@@ -1752,62 +1926,44 @@ function initFoodQuiz() {
 }
 
 // ============================================================
-// ★ NEW GAME 13: SHOPPING DASH
+// GAME 13: SHOPPING DASH
 // ============================================================
 function initShoppingDash() {
   const levels = [
     {
-      budget: 500,
-      list: ['👗 Dress', '👠 Heels', '👜 Bag'],
-      shop: [
-        {name:'👗 Dress', price:180, isTarget:true},
-        {name:'🧣 Scarf', price:60, isTarget:false},
-        {name:'👠 Heels', price:220, isTarget:true},
-        {name:'🧢 Cap', price:40, isTarget:false},
-        {name:'👜 Bag', price:95, isTarget:true},
-        {name:'🕶️ Sunglasses', price:75, isTarget:false},
+      budget:500, list:['👗 Dress','👠 Heels','👜 Bag'],
+      shop:[
+        {name:'👗 Dress',price:180,isTarget:true},{name:'🧣 Scarf',price:60,isTarget:false},
+        {name:'👠 Heels',price:220,isTarget:true},{name:'🧢 Cap',price:40,isTarget:false},
+        {name:'👜 Bag',price:95,isTarget:true},{name:'🕶️ Sunglasses',price:75,isTarget:false}
       ]
     },
     {
-      budget: 700,
-      list: ['💄 Lipstick', '💍 Ring', '🧴 Skincare', '👒 Hat'],
-      shop: [
-        {name:'💄 Lipstick', price:120, isTarget:true},
-        {name:'🧦 Socks', price:30, isTarget:false},
-        {name:'💍 Ring', price:280, isTarget:true},
-        {name:'🧴 Skincare', price:150, isTarget:true},
-        {name:'🎀 Ribbon', price:20, isTarget:false},
-        {name:'👒 Hat', price:110, isTarget:true},
-        {name:'🎒 Backpack', price:200, isTarget:false},
-        {name:'⌚ Watch', price:350, isTarget:false},
+      budget:700, list:['💄 Lipstick','💍 Ring','🧴 Skincare','👒 Hat'],
+      shop:[
+        {name:'💄 Lipstick',price:120,isTarget:true},{name:'🧦 Socks',price:30,isTarget:false},
+        {name:'💍 Ring',price:280,isTarget:true},{name:'🧴 Skincare',price:150,isTarget:true},
+        {name:'🎀 Ribbon',price:20,isTarget:false},{name:'👒 Hat',price:110,isTarget:true},
+        {name:'🎒 Backpack',price:200,isTarget:false},{name:'⌚ Watch',price:350,isTarget:false}
       ]
     },
     {
-      budget: 600,
-      list: ['👟 Sneakers', '🧥 Jacket', '📱 Phone Case'],
-      shop: [
-        {name:'👟 Sneakers', price:250, isTarget:true},
-        {name:'🧤 Gloves', price:55, isTarget:false},
-        {name:'🧥 Jacket', price:230, isTarget:true},
-        {name:'🎩 Top Hat', price:95, isTarget:false},
-        {name:'📱 Phone Case', price:85, isTarget:true},
-        {name:'🌂 Umbrella', price:70, isTarget:false},
+      budget:600, list:['👟 Sneakers','🧥 Jacket','📱 Phone Case'],
+      shop:[
+        {name:'👟 Sneakers',price:250,isTarget:true},{name:'🧤 Gloves',price:55,isTarget:false},
+        {name:'🧥 Jacket',price:230,isTarget:true},{name:'🎩 Top Hat',price:95,isTarget:false},
+        {name:'📱 Phone Case',price:85,isTarget:true},{name:'🌂 Umbrella',price:70,isTarget:false}
       ]
     }
   ];
-
-  let lvlIdx = 0, cartTotal = 0, checked = [];
-
+  let lvlIdx=0, cartTotal=0, checked=[];
   const render = () => {
     const lvl = levels[lvlIdx];
-    cartTotal = 0; checked = [];
+    cartTotal=0; checked=[];
     const area = document.getElementById('game-area');
     area.innerHTML = `
       <div class="shop-area">
-        <div class="budget-bar">
-          💰 Budget: <span class="budget-display" id="sh-budget">Rs. ${lvl.budget}</span>
-          &nbsp;|&nbsp; Spent: <span class="budget-display" id="sh-spent" style="color:#FF6B9D">Rs. 0</span>
-        </div>
+        <div class="budget-bar">💰 Budget: <span class="budget-display" id="sh-budget">Rs. ${lvl.budget}</span> &nbsp;|&nbsp; Spent: <span class="budget-display" id="sh-spent" style="color:#FF6B9D">Rs. 0</span></div>
         <div class="shop-list-card">
           <div class="shop-list-title">🛍️ Shopping List (Level ${lvlIdx+1}/${levels.length})</div>
           ${lvl.list.map(item => `<div class="shop-item-row" id="li-${item.replace(/[^a-z]/gi,'')}">${item}</div>`).join('')}
@@ -1817,7 +1973,6 @@ function initShoppingDash() {
         <div id="sh-msg" style="text-align:center;font-weight:700;min-height:2rem;margin-top:0.5rem"></div>
       </div>
     `;
-
     const shuffled = [...lvl.shop].sort(() => Math.random()-0.5);
     const grid = document.getElementById('sh-grid');
     shuffled.forEach(item => {
@@ -1834,26 +1989,21 @@ function initShoppingDash() {
         }
         if (cartTotal + item.price > lvl.budget) {
           btn.classList.add('wrong-pick');
-          document.getElementById('sh-msg').innerHTML = `<span style="color:#F87171">💸 Over budget! Can't afford this!</span>`;
+          document.getElementById('sh-msg').innerHTML = `<span style="color:#F87171">💸 Over budget!</span>`;
           setTimeout(() => { btn.classList.remove('wrong-pick'); document.getElementById('sh-msg').innerHTML=''; }, 800);
           return;
         }
         btn.classList.add('correct-pick'); btn.disabled = true;
         cartTotal += item.price; checked.push(item.name);
         document.getElementById('sh-spent').textContent = `Rs. ${cartTotal}`;
-        // Check the list item
         const listEl = document.getElementById('li-' + item.name.replace(/[^a-z]/gi,''));
         if (listEl) { listEl.classList.add('checked'); listEl.innerHTML += ' ✅'; }
         document.getElementById('sh-msg').innerHTML = `<span style="color:#34D399">🛒 Added! ${item.name}</span>`;
         if (checked.length === lvl.list.length) {
           setTimeout(() => {
             lvlIdx++;
-            if (lvlIdx >= levels.length) {
-              showWin(`You shopped all ${levels.length} levels! Rs. ${cartTotal} spent wisely!`, '🛍️', 'Shopping Queen!');
-            } else {
-              document.getElementById('sh-msg').innerHTML = `<span style="color:#A78BFA">🎉 Level complete! Next level…</span>`;
-              setTimeout(render, 1200);
-            }
+            if (lvlIdx >= levels.length) showWin(`All ${levels.length} levels complete!`,'🛍️','Shopping Queen!');
+            else { document.getElementById('sh-msg').innerHTML = `<span style="color:#A78BFA">🎉 Level complete!</span>`; setTimeout(render, 1200); }
           }, 600);
         }
       };
@@ -1864,57 +2014,53 @@ function initShoppingDash() {
 }
 
 // ============================================================
-// ★ NEW GAME 14: FASHION MATCH
+// GAME 14: FASHION MATCH
 // ============================================================
 function initFashionMatch() {
   const rounds = [
     {
-      theme: '🌸 Spring Picnic Look',
-      outfit: [
-        { slot: 'Top', correct: '🌸 Floral Blouse', options: ['🌸 Floral Blouse', '🧥 Heavy Coat', '🥋 Karate Suit', '🎽 Sports Jersey'] },
-        { slot: 'Bottom', correct: '🩱 White Skirt', options: ['🩱 White Skirt', '🩳 Swim Shorts', '👖 Ripped Jeans', '🩲 Underwear'] },
-        { slot: 'Shoes', correct: '🩴 Sandals', options: ['🩴 Sandals', '🥾 Hiking Boots', '👟 Basketball Shoes', '🥿 Ballet Flats'] }
+      theme:'🌸 Spring Picnic Look',
+      outfit:[
+        {slot:'Top', correct:'🌸 Floral Blouse', options:['🌸 Floral Blouse','🧥 Heavy Coat','🥋 Karate Suit','🎽 Sports Jersey']},
+        {slot:'Bottom', correct:'🩱 White Skirt', options:['🩱 White Skirt','🩳 Swim Shorts','👖 Ripped Jeans','🩲 Underwear']},
+        {slot:'Shoes', correct:'🩴 Sandals', options:['🩴 Sandals','🥾 Hiking Boots','👟 Basketball Shoes','🥿 Ballet Flats']}
       ]
     },
     {
-      theme: '🌃 Night Out Glam',
-      outfit: [
-        { slot: 'Dress', correct: '✨ Sequin Dress', options: ['✨ Sequin Dress', '🥼 Lab Coat', '🧤 Mittens', '🩱 Swimsuit'] },
-        { slot: 'Bag', correct: '👛 Clutch Bag', options: ['👛 Clutch Bag', '🎒 School Bag', '🧳 Suitcase', '🪣 Bucket'] },
-        { slot: 'Accessory', correct: '💎 Diamond Earrings', options: ['💎 Diamond Earrings', '⛑️ Hard Hat', '🎧 Headphones', '🥽 Goggles'] }
+      theme:'🌃 Night Out Glam',
+      outfit:[
+        {slot:'Dress', correct:'✨ Sequin Dress', options:['✨ Sequin Dress','🥼 Lab Coat','🧤 Mittens','🩱 Swimsuit']},
+        {slot:'Bag', correct:'👛 Clutch Bag', options:['👛 Clutch Bag','🎒 School Bag','🧳 Suitcase','🪣 Bucket']},
+        {slot:'Accessory', correct:'💎 Diamond Earrings', options:['💎 Diamond Earrings','⛑️ Hard Hat','🎧 Headphones','🥽 Goggles']}
       ]
     },
     {
-      theme: '🏖️ Beach Day Vibes',
-      outfit: [
-        { slot: 'Top', correct: '👙 Bikini Top', options: ['👙 Bikini Top', '🧥 Puffer Jacket', '👔 Formal Shirt', '🥋 Kimono'] },
-        { slot: 'Cover-Up', correct: '🩳 Shorts', options: ['🩳 Shorts', '👗 Evening Gown', '🧣 Wool Scarf', '🥻 Saree'] },
-        { slot: 'Accessory', correct: '🕶️ Sunglasses', options: ['🕶️ Sunglasses', '🎩 Top Hat', '🪖 Helmet', '🎓 Graduation Cap'] }
+      theme:'🏖️ Beach Day Vibes',
+      outfit:[
+        {slot:'Top', correct:'👙 Bikini Top', options:['👙 Bikini Top','🧥 Puffer Jacket','👔 Formal Shirt','🥋 Kimono']},
+        {slot:'Cover-Up', correct:'🩳 Shorts', options:['🩳 Shorts','👗 Evening Gown','🧣 Wool Scarf','🥻 Saree']},
+        {slot:'Accessory', correct:'🕶️ Sunglasses', options:['🕶️ Sunglasses','🎩 Top Hat','🪖 Helmet','🎓 Graduation Cap']}
       ]
     },
     {
-      theme: '💼 Power Office Look',
-      outfit: [
-        { slot: 'Top', correct: '👔 Blazer', options: ['👔 Blazer', '🌸 Crop Top', '🩱 Swimsuit', '🥋 Judo Gi'] },
-        { slot: 'Bottom', correct: '👖 Tailored Pants', options: ['👖 Tailored Pants', '🩲 Shorts', '🎿 Ski Pants', '🩻 X-Ray'] },
-        { slot: 'Shoes', correct: '👠 Heels', options: ['👠 Heels', '🩴 Flip Flops', '🥿 House Slippers', '⛸️ Ice Skates'] }
+      theme:'💼 Power Office Look',
+      outfit:[
+        {slot:'Top', correct:'👔 Blazer', options:['👔 Blazer','🌸 Crop Top','🩱 Swimsuit','🥋 Judo Gi']},
+        {slot:'Bottom', correct:'👖 Tailored Pants', options:['👖 Tailored Pants','🩲 Shorts','🎿 Ski Pants','🩻 X-Ray']},
+        {slot:'Shoes', correct:'👠 Heels', options:['👠 Heels','🩴 Flip Flops','🥿 House Slippers','⛸️ Ice Skates']}
       ]
     }
   ];
-
-  let roundIdx = 0, pieceIdx = 0, score = 0;
-
+  let roundIdx=0, pieceIdx=0, score=0;
   const render = () => {
     const round = rounds[roundIdx];
     const piece = round.outfit[pieceIdx];
     const shuffled = [...piece.options].sort(() => Math.random()-0.5);
-
     document.getElementById('game-area').innerHTML = `
       <div class="fashion-area">
         <div style="font-family:'Fredoka One',cursive;font-size:1.5rem;text-align:center;margin-bottom:0.5rem;color:#A78BFA">${round.theme}</div>
         <p style="text-align:center;color:#9CA3AF;margin-bottom:0.75rem">Round ${roundIdx+1}/${rounds.length} • Score: <span style="color:#A78BFA;font-weight:700">${score}</span></p>
-
-        <div class="outfit-display" id="outfit-slots">
+        <div class="outfit-display">
           ${round.outfit.map((p,i) => `
             <div class="outfit-piece ${i < pieceIdx ? 'matched' : ''}">
               <span class="outfit-piece-emoji">${i < pieceIdx ? '✅' : i === pieceIdx ? '❓' : '🔒'}</span>
@@ -1923,44 +2069,34 @@ function initFashionMatch() {
             </div>
           `).join('')}
         </div>
-
         <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:1rem;margin:1rem 0;text-align:center">
           <p style="color:#FBBF24;font-weight:700;font-size:1rem;margin-bottom:0.75rem">👗 Choose the ${piece.slot}:</p>
           <div class="fashion-options" id="fo"></div>
         </div>
-
         <div id="fm-msg" style="text-align:center;font-weight:700;min-height:2rem"></div>
       </div>
     `;
-
     const fo = document.getElementById('fo');
     shuffled.forEach(opt => {
       const btn = document.createElement('button');
-      btn.className = 'fashion-opt';
-      btn.textContent = opt;
+      btn.className = 'fashion-opt'; btn.textContent = opt;
       btn.onclick = () => {
-        fo.querySelectorAll('.fashion-opt').forEach(b => b.disabled = true);
+        fo.querySelectorAll('.fashion-opt').forEach(b => b.disabled=true);
         if (opt === piece.correct) {
           btn.classList.add('correct'); score++;
-          document.getElementById('fm-msg').innerHTML = '<span style="color:#34D399">✨ Fab choice! Perfect match!</span>';
+          document.getElementById('fm-msg').innerHTML='<span style="color:#34D399">✨ Fab choice!</span>';
         } else {
           btn.classList.add('wrong');
-          fo.querySelectorAll('.fashion-opt').forEach(b => { if(b.textContent === piece.correct) b.classList.add('correct'); });
-          document.getElementById('fm-msg').innerHTML = `<span style="color:#F87171">❌ Not quite! Better choice: ${piece.correct}</span>`;
+          fo.querySelectorAll('.fashion-opt').forEach(b => { if(b.textContent===piece.correct) b.classList.add('correct'); });
+          document.getElementById('fm-msg').innerHTML=`<span style="color:#F87171">❌ Better: ${piece.correct}</span>`;
         }
         setTimeout(() => {
           pieceIdx++;
           if (pieceIdx >= round.outfit.length) {
-            pieceIdx = 0; roundIdx++;
-            if (roundIdx >= rounds.length) {
-              showWin(`Fashion score: ${score}! You're a style icon! 👗`, '👗', 'Fashion Queen!');
-            } else {
-              document.getElementById('fm-msg').innerHTML = '<span style="color:#A78BFA">🎉 Outfit complete! Next look…</span>';
-              setTimeout(render, 1200);
-            }
-          } else {
-            render();
-          }
+            pieceIdx=0; roundIdx++;
+            if (roundIdx >= rounds.length) showWin(`Fashion score: ${score}! Style icon! 👗`,'👗','Fashion Queen!');
+            else { document.getElementById('fm-msg').innerHTML='<span style="color:#A78BFA">🎉 Outfit complete!</span>'; setTimeout(render, 1200); }
+          } else render();
         }, 1100);
       };
       fo.appendChild(btn);
